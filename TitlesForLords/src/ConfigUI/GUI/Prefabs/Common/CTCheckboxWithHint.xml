@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+
+        <Widget Id="CheckboxWithHint" HeightSizePolicy="Fixed" SuggestedHeight="60" WidthSizePolicy="StretchToParent" VerticalAlignment="Top"
+            HorizontalAlignment="Center" UpdateChildrenStates="true">
+            <Children>
+                <ListPanel HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" VerticalAlignment="Top"
+                    HorizontalAlignment="Left" LayoutImp.LayoutMethod="HorizontalLeftToRight">
+                    <Children>
+                        <!-- Property Name Section -->
+                        <Widget HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent"
+                            VerticalAlignment="Center" HorizontalAlignment="Left" SuggestedWidth="450">
+                            <Children>
+                                <RichTextWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren"
+                                    HorizontalAlignment="Right" Brush="MCM.Text" Text="@SettingName">
+                                    <Children>
+                                        <HintWidget DataSource="{Hint}" HeightSizePolicy="StretchToParent"
+                                            WidthSizePolicy="CoverChildren" HorizontalAlignment="Right"
+                                            Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+                                    </Children>
+                                </RichTextWidget>
+                            </Children>
+                        </Widget>
+
+                        <!-- checkbox section-->
+                        <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="Fixed" VerticalAlignment="Center"
+                            HorizontalAlignment="Center" MarginLeft="50" SuggestedWidth="350">
+                            <Children>
+                                <SettingsPropertyBoolView />
+                            </Children>
+                        </Widget>
+                    </Children>
+
+                </ListPanel>
+
+            </Children>
+        </Widget>
+
+    </Window>
+
+</Prefab>

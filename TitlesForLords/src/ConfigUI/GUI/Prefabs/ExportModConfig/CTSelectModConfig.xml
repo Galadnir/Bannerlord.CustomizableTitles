@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <Standard.Window Parameter.Title="Select Mod Config">
+            <Children>
+
+                <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" MarginBottom="80" MarginTop="20">
+                    <Children>
+                        <!-- Format for a list is: ScrollPanel -> Widget ClipRect -> ListPanel/Widget InnerPanel -> Items-->
+                        <!-- ScrollablePanel needs: Reference to ClipRect, reference to ElementsList, reference to a scroll bar-->
+                        <!-- Widget ClipRect needs width size policy to be CoverChildren and height size to be StretchToParent -->
+                        <!-- ListPanel/Widget InnerPanel needs LayoutImp.LayoutMethod. Search for LayoutMethod in dnSpy for options. Size policies need to be CoverChildren -->
+                        <!-- ListPanel Items needs ItemTemplate containing the screen to be used for each item. Size policies need to be CoverChildren.
+                             DataSource property must be assigned using the {} braces. Example: DataSource="{DataSourcePropertyName}" -->
+                        <ScrollablePanel Id="CustomizableTitlesExportScrollablePanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlightment="Left" VerticalAlignment="Bottom"
+                            AutoHideScrollBars="true" ClipRect="CustomizableTitlesExportClipRect" InnerPanel="CustomizableTitlesExportClipRect\CustomizableTitlesExportList"
+                            VerticalScrollbar="..\CustomizableTitlesExportScrollbar\Scrollbar" MouseScrollAxis="Vertical">
+                            <Children>
+                                <Widget Id="CustomizableTitlesExportClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                                    <Children>
+                                        <!--scrolled down, this can prevent using the save and reset button, because it "scrolled" over them-->
+                                        <ListPanel Id="CustomizableTitlesExportList" HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed" SuggestedWidth="700" MarginTop="10" HorizontalAlignment="Center"
+                                            LayoutImp.LayoutMethod="VerticalBottomToTop" DataSource="{ConfigList}">
+                                            <ItemTemplate>
+                                                <ButtonWidget HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" SuggestedHeight="75" HorizontalAlignment="Center" Command.Click="ExecuteSelect"
+                                                    Brush="CustomTitles.Frame" UpdateChildrenStates="false" ClipContents="true" MarginBottom="10">
+                                                    <Children>
+                                                        <RichTextWidget Text="@ConfigName" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                            MarginLeft="18" DoNotAcceptEvents="true" />
+
+                                                        <HintWidget DataSource="{SelectConfigHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right"
+                                                            Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+                                                    </Children>
+                                                </ButtonWidget>
+                                            </ItemTemplate>
+                                        </ListPanel>
+                                    </Children>
+                                </Widget>
+                            </Children>
+
+                        </ScrollablePanel>
+
+                        <Standard.VerticalScrollbar Id="CustomizableTitlesExportScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Bottom" MarginLeft="2" MarginTop="1"
+                            MarginBottom="1" />
+
+                    </Children>
+                </Widget>
+                <Standard.DialogCloseButtons Parameter.CancelButtonText="Cancel" Parameter.CancelButtonAction="ExecuteCancel" Parameter.ShowDone="false" />
+                <TextWidget Brush="Encyclopedia.SubPage.Info.Text" WidthSizePolicy="Fixed" SuggestedWidth="560" HeightSizePolicy="CoverChildren" VerticalAlignment="Bottom" HorizontalAlignment="Left" MarginLeft="5"
+                    MarginBottom="5" Brush.FontSize="22"
+                    Text="Note: The exported config keeps its value of 'active'. To include the exported config in your mod, simply put it anywhere into the folder of your mod. You can update your default configuration by providing a new config with the same UID. If a default config is updated (for a user), the config remains active or disabled, depending on the user's settings." />
+            </Children>
+        </Standard.Window>
+    </Window>
+
+</Prefab>

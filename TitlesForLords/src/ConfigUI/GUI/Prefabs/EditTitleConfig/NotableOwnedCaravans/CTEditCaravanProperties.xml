@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <CTTitleConfigBackground>
+            <Children>
+                <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" MarginTop="10" MarginLeft="150" MarginRight="210">
+                    <Children>
+                        <CTCaravanProperties DataSource="{Properties}" />
+                    </Children>
+                </Widget>
+            </Children>
+        </CTTitleConfigBackground>
+    </Window>
+</Prefab>

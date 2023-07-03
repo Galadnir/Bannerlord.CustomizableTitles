@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <Widget Id="VillagerProperties" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren">
+            <Children>
+                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop">
+                    <Children>
+                        <CTNullableBoolDropdown DataSource="{ShowHomeSettlementOfVillagers}" />
+                        <CTNullableBoolDropdown DataSource="{ShowOwnerOfVillagers}"/>
+                        <CTNullableBoolDropdown DataSource="{ShowHomeSettlementBeforeOwner}"/>
+                        <CTEditStringBar DataSource="{PrefixBar}" />
+                        <CTEditStringBar DataSource="{PostfixBar}" />
+                        <CTEditStringBar DataSource="{InfixBar}" />
+                    </Children>
+                </ListPanel>
+            </Children>
+        </Widget>
+    </Window>
+</Prefab>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+
+        <BrushWidget Id="EditStringBar" HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" SuggestedHeight="75" HorizontalAlignment="Center" Brush="CustomTitles.Frame"
+            UpdateChildrenStates="false" ClipContents="true" MarginBottom="10" >
+            <Children>
+                <RichTextWidget Text="@SettingName" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left" VerticalAlignment="Center" MarginLeft="20" DoNotAcceptEvents="true" />
+
+                <HintWidget DataSource="{SettingHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+                
+                <!--current value-->
+                <Widget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Children>
+                        <BrushWidget SuggestedWidth="362" SuggestedHeight="42" VerticalAlignment="Center" HorizontalAlignment="Center" Brush="MCM.Input.String">
+                            <Children>
+                                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" Text="undefined" Brush="MCM.Text" Brush.TextAlphaFactor="0.5" IsVisible="@IsUndefined"/>
+								<EditableTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center"
+									RealText="@StringValue" IsEnabled="@IsEnabled" IsObfuscationEnabled="false" Brush="MCM.Text" />
+                            </Children>
+                        </BrushWidget>
+                    </Children>
+                </Widget>
+
+                <!--warning hint-->
+                <Widget HeightSizePolicy="Fixed" WidthSizePolicy="Fixed" SuggestedWidth="36" SuggestedHeight="36" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="true" PositionXOffset="210" ClipContents="true" IsVisible="@IsWarningEnabled">
+                    <Children>
+						
+						<ButtonWidget SuggestedWidth="27" SuggestedHeight="27" VerticalAlignment="Center" HorizontalAlignment="Center" Brush="CustomTitles.WarningBackground" UpdateChildrenStates="true" >
+							<Children>
+								<BrushWidget SuggestedWidth="20" SuggestedHeight="20" VerticalAlignment="Center" HorizontalAlignment="Center" Brush="CustomTitles.Warning" IsEnabled="false" />
+                                <HintWidget DataSource="{WarningHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
+                                Command.HoverEnd="ExecuteEndHint" />
+                            </Children>
+                        </ButtonWidget>
+
+                    </Children>
+                </Widget>
+                
+                <!--Set Empty Button-->
+                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteSetEmpty" VerticalAlignment="Center" HorizontalAlignment="Right" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed"
+                    SuggestedWidth="180" SuggestedHeight="40" Brush="ButtonBrush2" MarginRight="20" PositionXOffset="-200" IsEnabled="@IsEnabled">
+                    <Children>
+                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="Set Empty" Brush.FontSize="27" />
+                        <HintWidget DataSource="{SetEmptyHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
+                            Command.HoverEnd="ExecuteEndHint" />
+                    </Children>
+                </ButtonWidget>
+				
+				<!--Undefine Button-->
+                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteUndefine" VerticalAlignment="Center" HorizontalAlignment="Right" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed"
+                    SuggestedWidth="180" SuggestedHeight="40" Brush="ButtonBrush3" MarginRight="20" IsEnabled="@IsEnabled">
+                    <Children>
+                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="Undefine" Brush.FontSize="27" />
+                        <HintWidget DataSource="{UndefineHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
+                            Command.HoverEnd="ExecuteEndHint" />
+                    </Children>
+                </ButtonWidget>
+            </Children>
+        </BrushWidget>
+
+    </Window>
+</Prefab>

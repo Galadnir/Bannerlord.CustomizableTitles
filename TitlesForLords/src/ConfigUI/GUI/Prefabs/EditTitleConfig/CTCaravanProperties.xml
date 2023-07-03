@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <Widget Id="CaravanProperties" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren">
+            <Children>
+                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop">
+                    <Children>
+                        <!--show name of owner setting-->
+                        <CTNullableBoolDropdown DataSource="{ShowNameOfOwner}"/>
+                        <!--prefix setting-->
+                        <CTEditStringBar DataSource="{PrefixBar}" />
+                        <!--postfix setting-->
+                        <CTEditStringBar DataSource="{PostfixBar}" />
+                    </Children>
+                </ListPanel>
+            </Children>
+        </Widget>
+    </Window>
+</Prefab>

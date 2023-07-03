@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <Widget Id="MainTitleProperties" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren">
+            <Children>
+                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop">
+                    <Children>
+                        <CTNullableBoolDropdown DataSource="{OnlyApplyToClanLeader}" />
+                        <CTNullableBoolDropdown DataSource="{ApplyToMercenaries}"/>
+                        <CTEditStringBar DataSource="{TitleBeforeName}" />
+                        <CTEditStringBar DataSource="{TitleAfterName}" />
+                        <CTEditStringBar DataSource="{PartyPrefixOnCampaignMap}" />
+                        <CTEditStringBar DataSource="{PartyPostfixOnCampaignMap}" />
+                        <CTEditStringBar DataSource="{ArmyPrefixOnCampaignMap}" />
+                        <CTEditStringBar DataSource="{ArmyPostfixOnCampaignMap}" />
+                    </Children>
+                </ListPanel>
+            </Children>
+        </Widget>
+    </Window>
+</Prefab>

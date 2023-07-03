@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+
+    <Constants>
+        <Constant Name="ButtonConst.Height" BrushLayer="Default" BrushName="SPOptions.Dropdown.Center" BrushValueType="Height" />
+    </Constants>
+
+    <Window>
+        <CTTitleConfigBackground>
+            <Children>
+                <CTEditClanPropertiesWidget />
+            </Children>
+        </CTTitleConfigBackground>
+
+    </Window>
+</Prefab>

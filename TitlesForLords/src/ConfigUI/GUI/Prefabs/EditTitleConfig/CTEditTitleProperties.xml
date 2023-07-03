@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <CTTitleConfigBackground>
+            <Children>
+                <CTEditTitlePropertiesWidget DataSource="{TitlePropertiesWidget}" />
+
+            </Children>
+        </CTTitleConfigBackground>
+    </Window>
+</Prefab>

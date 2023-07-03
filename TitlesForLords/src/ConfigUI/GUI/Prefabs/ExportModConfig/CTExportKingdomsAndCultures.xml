@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <Standard.Window Parameter.Title="">
+            <Children>
+                <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" MarginBottom="80" MarginTop="35">
+                    <Children>
+                        <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" LayoutImp.LayoutMethod="HorizontalLeftToRight">
+                            <Children>
+
+                                <!-- kingdoms-->
+                                <ScrollablePanel Id="CustomizableTitlesExportKingdomsListScrollablePanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlightment="Left"
+                                    VerticalAlignment="Bottom" AutoHideScrollBars="true" ClipRect="CustomizableTitlesExportKingdomsListClipRect"
+                                    InnerPanel="CustomizableTitlesExportKingdomsListClipRect\CustomizableTitlesExportKingdomsListList" VerticalScrollbar="..\CustomizableTitlesExportKingdomsListScrollbar\Scrollbar"
+                                    MouseScrollAxis="Vertical">
+                                    <Children>
+                                        <Widget Id="CustomizableTitlesExportKingdomsListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                                            <Children>
+                                                <!--scrolled down, this can prevent using the save and reset button, because it "scrolled" over them-->
+                                                <ListPanel Id="CustomizableTitlesExportKingdomsListList" HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed" SuggestedWidth="600" MarginTop="10"
+                                                    HorizontalAlignment="Center" LayoutImp.LayoutMethod="VerticalBottomToTop">
+                                                    <Children>
+                                                        <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed" SuggestedWidth="600" HorizontalAlignment="Center" LayoutImp.LayoutMethod="VerticalBottomToTop"
+                                                            DataSource="{ModKingdomsList}">
+                                                            <ItemTemplate>
+                                                                <BrushWidget HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" SuggestedHeight="75" HorizontalAlignment="Center" Brush="CustomTitles.Frame"
+                                                                    UpdateChildrenStates="false" ClipContents="true" MarginBottom="10">
+                                                                    <Children>
+                                                                        <RichTextWidget Text="@Name" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                                            DoNotAcceptEvents="true" MarginLeft="20" />
+                                                                        <ButtonWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" Command.Click="ExecuteDelete" Brush="ButtonBrush3"
+                                                                            HorizontalAlignment="Right" VerticalAlignment="Center" MarginRight="20" DoNotPassEventsToChildren="true">
+                                                                            <Children>
+                                                                                <TextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" MarginRight="7" MarginLeft="7" MarginTop="3" MarginBottom="3"
+                                                                                    Text="Delete" />
+                                                                            </Children>
+                                                                        </ButtonWidget>
+                                                                    </Children>
+                                                                </BrushWidget>
+                                                            </ItemTemplate>
+                                                        </ListPanel>
+                                                        <BrushWidget HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" SuggestedHeight="75" HorizontalAlignment="Center" Brush="CustomTitles.Frame"
+                                                            ClipContents="true" MarginBottom="10">
+                                                            <Children>
+                                                                <BrushWidget SuggestedWidth="362" SuggestedHeight="42" VerticalAlignment="Center" HorizontalAlignment="Left" MarginLeft="10" Brush="MCM.Input.String">
+                                                                    <Children>
+                                                                        <EditableTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                                            RealText="@NewKingdomName" IsObfuscationEnabled="false" Brush="MCM.Text" />
+                                                                    </Children>
+                                                                </BrushWidget>
+
+                                                                <ButtonWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" Command.Click="ExecuteAddKingdom" Brush="ButtonBrush1"
+                                                                    HorizontalAlignment="Right" VerticalAlignment="Center" MarginRight="30" DoNotPassEventsToChildren="true">
+                                                                    <Children>
+                                                                        <TextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" MarginRight="7" MarginLeft="7" MarginTop="3" MarginBottom="3"
+                                                                            Text="Add" />
+                                                                    </Children>
+                                                                </ButtonWidget>
+                                                            </Children>
+                                                        </BrushWidget>
+                                                    </Children>
+                                                </ListPanel>
+                                            </Children>
+                                        </Widget>
+                                    </Children>
+
+                                </ScrollablePanel>
+
+                                <Standard.VerticalScrollbar Id="CustomizableTitlesExportKingdomsListScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Bottom" MarginLeft="2"
+                                    MarginTop="1" MarginBottom="1" />
+
+                                <!-- cultures-->
+                                <ScrollablePanel Id="CustomizableTitlesExportCultureListScrollablePanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlightment="Left"
+                                    VerticalAlignment="Bottom" AutoHideScrollBars="true" ClipRect="CustomizableTitlesExportCultureListClipRect"
+                                    InnerPanel="CustomizableTitlesExportCultureListClipRect\CustomizableTitlesExportCultureListList" VerticalScrollbar="..\CustomizableTitlesExportCultureListScrollbar\Scrollbar"
+                                    MouseScrollAxis="Vertical">
+                                    <Children>
+                                        <Widget Id="CustomizableTitlesExportCultureListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                                            <Children>
+                                                <!--scrolled down, this can prevent using the save and reset button, because it "scrolled" over them-->
+                                                <ListPanel Id="CustomizableTitlesExportCultureListList" HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed" SuggestedWidth="600" MarginTop="10"
+                                                    HorizontalAlignment="Center" LayoutImp.LayoutMethod="VerticalBottomToTop">
+                                                    <Children>
+                                                        <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed" SuggestedWidth="600" HorizontalAlignment="Center" LayoutImp.LayoutMethod="VerticalBottomToTop"
+                                                            DataSource="{ModCulturesList}">
+                                                            <ItemTemplate>
+                                                                <BrushWidget HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" SuggestedHeight="75" HorizontalAlignment="Center" Brush="CustomTitles.Frame"
+                                                                    UpdateChildrenStates="false" ClipContents="true" MarginBottom="10">
+                                                                    <Children>
+                                                                        <RichTextWidget Text="@Name" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                                            DoNotAcceptEvents="true" MarginLeft="20" />
+                                                                        <ButtonWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" Command.Click="ExecuteDelete" Brush="ButtonBrush3"
+                                                                            HorizontalAlignment="Right" VerticalAlignment="Center" MarginRight="20" DoNotPassEventsToChildren="true">
+                                                                            <Children>
+                                                                                <TextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" MarginRight="7" MarginLeft="7" MarginTop="3" MarginBottom="3"
+                                                                                    Text="Delete" />
+                                                                            </Children>
+                                                                        </ButtonWidget>
+                                                                    </Children>
+                                                                </BrushWidget>
+                                                            </ItemTemplate>
+                                                        </ListPanel>
+                                                        <BrushWidget HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" SuggestedHeight="75" HorizontalAlignment="Center" Brush="CustomTitles.Frame"
+                                                            UpdateChildrenStates="false" ClipContents="true" MarginBottom="10">
+                                                            <Children>
+                                                                <BrushWidget SuggestedWidth="362" SuggestedHeight="42" VerticalAlignment="Center" HorizontalAlignment="Left" MarginLeft="10" Brush="MCM.Input.String">
+                                                                    <Children>
+                                                                        <EditableTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                                            RealText="@NewCultureName" IsObfuscationEnabled="false" Brush="MCM.Text" />
+                                                                    </Children>
+                                                                </BrushWidget>
+
+                                                                <ButtonWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" Command.Click="ExecuteAddCulture" Brush="ButtonBrush1"
+                                                                    HorizontalAlignment="Right" VerticalAlignment="Center" MarginRight="30" DoNotPassEventsToChildren="true">
+                                                                    <Children>
+                                                                        <TextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" MarginRight="7" MarginLeft="7" MarginTop="3" MarginBottom="3"
+                                                                            Text="Add" />
+                                                                    </Children>
+                                                                </ButtonWidget>
+                                                            </Children>
+                                                        </BrushWidget>
+                                                    </Children>
+                                                </ListPanel>
+                                            </Children>
+                                        </Widget>
+                                    </Children>
+
+                                </ScrollablePanel>
+
+                                <Standard.VerticalScrollbar Id="CustomizableTitlesExportCultureListScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Bottom" MarginLeft="2"
+                                    MarginTop="1" MarginBottom="1" />
+                            </Children>
+                        </ListPanel>
+                    </Children>
+                </Widget>
+
+                <Standard.DialogCloseButtons Parameter.DoneButtonText="Export" Parameter.DoneButtonAction="ExecuteExport" Parameter.CancelButtonText="Cancel" Parameter.CancelButtonAction="ExecuteCancel" />
+                <TextWidget Brush="Encyclopedia.SubPage.Info.Text" WidthSizePolicy="Fixed" SuggestedWidth="560" HeightSizePolicy="CoverChildren" VerticalAlignment="Bottom" HorizontalAlignment="Left" MarginLeft="5"
+                    MarginBottom="5" Brush.FontSize="22"
+                    Text="Note: The exported config keeps its value of 'active'. To include the exported config in your mod, simply put it anywhere into the folder of your mod. You can update your default configuration by providing a new config with the same UID. If a default config is updated (for a user), the config remains active or disabled, depending on the user's settings." />
+            </Children>
+        </Standard.Window>
+    </Window>
+
+</Prefab>

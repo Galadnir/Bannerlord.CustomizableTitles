@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Window>
+        <ButtonWidget Id="DefaultListEntry" HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" SuggestedHeight="75" HorizontalAlignment="Center" Command.Click="ExecuteSelect" Brush="CustomTitles.Frame"
+            UpdateChildrenStates="false" ClipContents="true" MarginBottom="10">
+            <Children>
+                <RichTextWidget Text="@EntryKey" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left" VerticalAlignment="Center" MarginLeft="10" DoNotAcceptEvents="true" />
+
+                <HintWidget DataSource="{EntryHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+
+                <!--These are not a part of a ListPanel, because then the space around the buttons is no longer clickable to edit config-->
+                <!--Rename Button-->
+                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteRename" VerticalAlignment="Center" HorizontalAlignment="Right" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="180"
+                    SuggestedHeight="40" Brush="ButtonBrush1" PositionXOffset="-420" IsEnabled="@IsEditEnabled">
+                    <Children>
+                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="Rename" />
+                        <HintWidget DataSource="{RenameHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
+                            Command.HoverEnd="ExecuteEndHint" />
+                    </Children>
+                </ButtonWidget>
+
+                <!--Copy Button-->
+                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteCopy" VerticalAlignment="Center" HorizontalAlignment="Right" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="180"
+                    SuggestedHeight="40" Brush="ButtonBrush2" PositionXOffset="-220" IsEnabled="@IsEditEnabled">
+                    <Children>
+                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="Copy" />
+                        <HintWidget DataSource="{CopyHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
+                            Command.HoverEnd="ExecuteEndHint" />
+                    </Children>
+                </ButtonWidget>
+
+                <!--Delete Button-->
+                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteDelete" VerticalAlignment="Center" HorizontalAlignment="Right" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="180"
+                    SuggestedHeight="40" Brush="ButtonBrush3" PositionXOffset="-20" IsEnabled="@IsEditEnabled">
+                    <Children>
+                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="Delete" />
+                        <HintWidget DataSource="{DeleteHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
+                            Command.HoverEnd="ExecuteEndHint" />
+                    </Children>
+                </ButtonWidget>
+            </Children>
+        </ButtonWidget>
+    </Window>
+</Prefab>

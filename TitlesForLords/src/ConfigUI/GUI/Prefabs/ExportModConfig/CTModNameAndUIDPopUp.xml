@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Window>
+        <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent">
+            <Children>
+                <BrushWidget HeightSizePolicy="Fixed" WidthSizePolicy="Fixed" SuggestedWidth="630" SuggestedHeight="270" VerticalAlignment="Center" HorizontalAlignment="Center" Brush="Frame1Brush">
+                    <Children>
+                        <ListPanel HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop" MarginTop="20" MarginBottom="10">
+                            <Children>
+                                <!--UID Text-->
+                                <RichTextWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Enter UID" Brush.FontSize="28" MarginBottom="2">
+                                    <Children>
+                                        <HintWidget DataSource="{EnterUIDHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
+                                            Command.HoverEnd="ExecuteEndHint" />
+                                    </Children>
+                                </RichTextWidget>
+
+                                <!--UID Editable Widget-->
+                                <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Children>
+                                        <BrushWidget SuggestedWidth="500" SuggestedHeight="42" VerticalAlignment="Center" HorizontalAlignment="Center" Brush="MCM.Input.String">
+                                            <Children>
+                                                <EditableTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" RealText="@UID"
+                                                    IsObfuscationEnabled="false" Brush="MCM.Text" />
+
+                                            </Children>
+                                        </BrushWidget>
+                                    </Children>
+                                </Widget>
+                                <!--Mod Name Text-->
+                                <RichTextWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Enter mod name" Brush.FontSize="28" MarginBottom="2">
+                                    <Children>
+                                        <HintWidget DataSource="{EnterModNameHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
+                                            Command.HoverEnd="ExecuteEndHint" />
+                                    </Children>
+                                </RichTextWidget>
+                                <!--Mod Name Editable Widget-->
+                                <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" MarginBottom="15">
+                                    <Children>
+                                        <BrushWidget SuggestedWidth="500" SuggestedHeight="42" VerticalAlignment="Center" HorizontalAlignment="Center" Brush="MCM.Input.String">
+                                            <Children>
+                                                <EditableTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" RealText="@ModName"
+                                                    IsObfuscationEnabled="false" Brush="MCM.Text" />
+
+                                            </Children>
+                                        </BrushWidget>
+                                    </Children>
+                                </Widget>
+                                <!-- Exit PopUp buttons-->
+                                <ListPanel HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Center" LayoutImp.LayoutMethod="HorizontalLeftToRight" MarginBottom="20">
+                                    <Children>
+                                        <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Children>
+                                                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteDiscardInputModNameAndUID" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                    WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="160" MarginRight="10" SuggestedHeight="40" Brush="ButtonBrush3">
+                                                    <Children>
+                                                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="Discard" Brush.FontSize="27" />
+                                                    </Children>
+                                                </ButtonWidget>
+                                            </Children>
+                                        </Widget>
+                                        <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Children>
+                                                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteConfirmModNameAndUID" VerticalAlignment="Center" HorizontalAlignment="Center" WidthSizePolicy="Fixed"
+                                                    HeightSizePolicy="Fixed" SuggestedWidth="160" MarginLeft="10" SuggestedHeight="40" Brush="ButtonBrush1">
+                                                    <Children>
+                                                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="Confirm" Brush.FontSize="27" />
+                                                    </Children>
+                                                </ButtonWidget>
+                                            </Children>
+                                        </Widget>
+                                    </Children>
+                                </ListPanel>
+                            </Children>
+                        </ListPanel>
+                    </Children>
+                </BrushWidget>
+            </Children>
+        </Widget>
+    </Window>
+</Prefab>

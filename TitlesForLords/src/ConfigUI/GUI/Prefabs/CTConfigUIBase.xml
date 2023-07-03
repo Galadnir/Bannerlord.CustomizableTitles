@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <Widget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren">
+            <Children>
+
+
+                <Standard.TopPanel Parameter.Title="Configure Titles">
+                    <Children>
+
+                        <!--Back History Button-->
+                        <ButtonWidget Command.Click="ExecuteBack" HeightSizePolicy="Fixed" WidthSizePolicy="Fixed"
+                            SuggestedHeight="48" SuggestedWidth="41" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            MarginLeft="45" MarginTop="40" Brush="ButtonRightBigArrowBrush1" IsEnabled="@IsBackEnabled">
+
+                            <Children>
+                                <HintWidget DataSource="{BackHint}" DoNotAcceptEvents="true"
+                                    WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"
+                                    Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+                            </Children>
+
+
+                        </ButtonWidget>
+
+                        <!--Forward History Button-->
+                        <ButtonWidget Command.Click="ExecuteForward" HeightSizePolicy="Fixed" WidthSizePolicy="Fixed"
+                            SuggestedHeight="48" SuggestedWidth="41" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            MarginLeft="100" MarginTop="40" Brush="ButtonLeftBigArrowBrush1"
+                            IsEnabled="@IsForwardEnabled">
+
+                            <Children>
+                                <HintWidget DataSource="{ForwardHint}" DoNotAcceptEvents="true"
+                                    WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"
+                                    Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+                            </Children>
+
+                        </ButtonWidget>
+
+                        <!--Current Path-->
+                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren"
+                            VerticalAlignment="Bottom" HorizontalAlignment="Left"  MarginLeft="45" MarginBottom="50" Text="@CurrentPath"/>
+                        
+                        <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren"
+                            LayoutImp.LayoutMethod="VerticalBottomToTop" HorizontalAlignment="Right"
+                            VerticalAlignemt="Center" MarginTop="40">
+                            <Children>
+
+                                <!--Save Button-->
+                                <Standard.Button Parameter.Text="Save" Parameter.OnClick="ExecuteSave" MarginRight="10"
+                                    MarginBottom="5" />
+
+                                <!--Reset Button-->
+                                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteReset"
+                                    WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="227"
+                                    SuggestedHeight="40" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                    Brush="ButtonBrush3" MarginRight="10">
+                                    <Children>
+                                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"
+                                            Text="Reset" />
+                                    </Children>
+                                </ButtonWidget>
+
+                            </Children>
+
+                        </ListPanel>
+
+                    </Children>
+
+                </Standard.TopPanel>
+
+            </Children>
+        </Widget>
+
+    </Window>
+</Prefab>

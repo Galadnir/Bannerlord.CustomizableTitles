@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+
+    <Constants>
+        <Constant Name="DropdownCenter.Height" BrushLayer="Default" BrushName="SPOptions.Dropdown.Center" BrushValueType="Height" />
+    </Constants>
+
+    <Window>
+        <CTTitleConfigBackground>
+
+            <Children>
+
+                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginBottom="80">
+                    <Children>
+                        <!-- Format for a list is: ScrollPanel -> Widget ClipRect -> ListPanel/Widget InnerPanel -> Items-->
+                        <!-- ScrollablePanel needs: Reference to ClipRect, reference to ElementsList, reference to a scroll bar-->
+                        <!-- Widget ClipRect needs width size policy to be CoverChildren and height size to be StretchToParent -->
+                        <!-- ListPanel/Widget InnerPanel needs LayoutImp.LayoutMethod. Search for LayoutMethod in dnSpy for options. Size policies need to be CoverChildren -->
+                        <!-- ListPanel Items needs ItemTemplate containing the screen to be used for each item. Size policies need to be CoverChildren.
+                         DataSource property must be assigned using the {} braces. Example: DataSource="{DataSourcePropertyName}" -->
+                        <ScrollablePanel Id="CulturesAndKingdomsForModsScrollablePanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlightment="Left" VerticalAlignment="Bottom"
+                            AutoHideScrollBars="true" ClipRect="CulturesAndKingdomsForModsClipRect" InnerPanel="CulturesAndKingdomsForModsClipRect\CulturesAndKingdomsForModsList"
+                            VerticalScrollbar="..\CulturesAndKingdomsForModsScrollbar\Scrollbar" MouseScrollAxis="Vertical" DoNotPassEventsToChildren="true">
+                            <Children>
+                                <Widget Id="CulturesAndKingdomsForModsClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                                    <Children>
+                                        <ListPanel Id="CulturesAndKingdomsForModsList" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" MarginTop="10" MarginLeft="400" MarginRight="10"
+                                            LayoutImp.LayoutMethod="VerticalBottomToTop">
+                                            <Children>
+
+                                                <!-- table header -->
+                                                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" LayoutImp.LayoutMethod="HorizontalLeftToRight" MarginBottom="15">
+
+                                                    <Children>
+                                                        <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren">
+                                                            <Children>
+                                                                <RichTextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" Text="Mods" Brush.FontSize="35" />
+
+                                                            </Children>
+                                                        </Widget>
+                                                        <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren">
+                                                            <Children>
+                                                                <RichTextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" Text="Kingdoms" Brush.FontSize="35" />
+
+                                                            </Children>
+                                                        </Widget>
+                                                        <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren">
+                                                            <Children>
+                                                                <RichTextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" Text="Cultures" Brush.FontSize="35" />
+
+                                                            </Children>
+                                                        </Widget>
+                                                    </Children>
+
+                                                </ListPanel>
+                                                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" DataSource="{ListPerMod}" LayoutImp.LayoutMethod="VerticalBottomToTop">
+                                                    <ItemTemplate>
+                                                        <CTKnownCulturesAndKingdomsListPerMod />
+                                                    </ItemTemplate>
+                                                </ListPanel>
+                                            </Children>
+
+                                        </ListPanel>
+                                    </Children>
+                                </Widget>
+                            </Children>
+
+                        </ScrollablePanel>
+
+                        <Standard.VerticalScrollbar Id="CulturesAndKingdomsForModsScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Bottom" MarginLeft="2" MarginTop="1"
+                            MarginBottom="1" />
+                    </Children>
+                </Widget>
+
+            </Children>
+        </CTTitleConfigBackground>
+    </Window>
+
+</Prefab>

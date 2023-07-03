@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+
+    <Constants>
+    </Constants>
+
+    <Window>
+        <CTTitleConfigBackground>
+            <Children>
+
+                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginBottom="80">
+                    <Children>
+                        <!-- Format for a list is: ScrollPanel -> Widget ClipRect -> ListPanel/Widget InnerPanel -> Items-->
+                        <!-- ScrollablePanel needs: Reference to ClipRect, reference to ElementsList, reference to a scroll bar-->
+                        <!-- Widget ClipRect needs width size policy to be CoverChildren and height size to be StretchToParent -->
+                        <!-- ListPanel/Widget InnerPanel needs LayoutImp.LayoutMethod. Search for LayoutMethod in dnSpy for options. Size policies need to be CoverChildren -->
+                        <!-- ListPanel Items needs ItemTemplate containing the screen to be used for each item. Size policies need to be CoverChildren.
+                         DataSource property must be assigned using the {} braces. Example: DataSource="{DataSourcePropertyName}" -->
+                        <ScrollablePanel Id="CustomTitlesConfigsOverviewScrollablePanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlightment="Left" VerticalAlignment="Bottom"
+                            AutoHideScrollBars="true" ClipRect="CustomTitlesConfigsOverviewClipRect" InnerPanel="CustomTitlesConfigsOverviewClipRect\CustomTitlesConfigsOverviewList"
+                            VerticalScrollbar="..\CustomTitlesConfigsOverviewScrollbar\Scrollbar" MouseScrollAxis="Vertical">
+                            <Children>
+                                <Widget Id="CustomTitlesConfigsOverviewClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                                    <Children>
+                                        <!--scrolled down, this can prevent using the save and reset button, because it "scrolled" over them-->
+                                        <ListPanel Id="CustomTitlesConfigsOverviewList" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" MarginTop="10" MarginLeft="150" MarginRight="210"
+                                            HorizontalAlignment="Center" LayoutImp.LayoutMethod="VerticalBottomToTop">
+                                            <Children>
+                                                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" LayoutImp.LayoutMethod="VerticalBottomToTop" DataSource="{Entries}">
+                                                    <ItemTemplate>
+                                                        <CTTitleConfigEntry />
+                                                    </ItemTemplate>
+                                                </ListPanel>
+                                                <!--add new config button-->
+                                                <ButtonWidget HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" SuggestedHeight="75" HorizontalAlignment="Center" Command.Click="ExecuteCreateConfig"
+                                                    Brush="CustomTitles.Frame" UpdateChildrenStates="false" ClipContents="true" MarginBottom="10">
+                                                    <Children>
+                                                        <RichTextWidget Text="Create a new configuration" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left" VerticalAlignment="Center" MarginLeft="10" DoNotAcceptEvents="true" />
+                                                    </Children>
+                                                </ButtonWidget>
+                                            </Children>
+                                        </ListPanel>
+                                    </Children>
+                                </Widget>
+                            </Children>
+
+                        </ScrollablePanel>
+
+                        <Standard.VerticalScrollbar Id="CustomTitlesConfigsOverviewScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Bottom" MarginLeft="2" MarginTop="1"
+                            MarginBottom="1" />
+                    </Children>
+                </Widget>
+            </Children>
+        </CTTitleConfigBackground>
+    </Window>
+
+</Prefab>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+
+    <Constants>
+    </Constants>
+
+    <Window>
+        <CTTitleConfigBackground>
+            <Children>
+
+                <Widget ID="CustomizableTitlesDefaultList" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginBottom="80">
+                    <Children>
+                        <!-- Format for a list is: ScrollPanel -> Widget ClipRect -> ListPanel/Widget InnerPanel -> Items-->
+                        <!-- ScrollablePanel needs: Reference to ClipRect, reference to ElementsList, reference to a scroll bar-->
+                        <!-- Widget ClipRect needs width size policy to be CoverChildren and height size to be StretchToParent -->
+                        <!-- ListPanel/Widget InnerPanel needs LayoutImp.LayoutMethod. Search for LayoutMethod in dnSpy for options. Size policies need to be CoverChildren -->
+                        <!-- ListPanel Items needs ItemTemplate containing the screen to be used for each item. Size policies need to be CoverChildren.
+                         DataSource property must be assigned using the {} braces. Example: DataSource="{DataSourcePropertyName}" -->
+                        <ScrollablePanel Id="CustomTitlesDefaultListScrollablePanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlightment="Left" VerticalAlignment="Bottom"
+                            AutoHideScrollBars="true" ClipRect="CustomTitlesDefaultListClipRect" InnerPanel="CustomTitlesDefaultListClipRect\CustomTitlesDefaultListList"
+                            VerticalScrollbar="..\CustomTitlesDefaultListScrollbar\Scrollbar" MouseScrollAxis="Vertical">
+                            <Children>
+                                <Widget Id="CustomTitlesDefaultListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                                    <Children>
+                                        <!--scrolled down, this can prevent using the save and reset button, because it "scrolled" over them-->
+                                        <ListPanel Id="CustomTitlesDefaultListList" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" MarginTop="10" MarginLeft="150" MarginRight="210"
+                                            HorizontalAlignment="Center" LayoutImp.LayoutMethod="VerticalBottomToTop">
+                                            <Children>
+                                                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" LayoutImp.LayoutMethod="VerticalBottomToTop" DataSource="{Entries}">
+                                                    <ItemTemplate>
+                                                        <CTDefaultListEntry />
+                                                    </ItemTemplate>
+                                                </ListPanel>
+                                                <!--add new entry button-->
+                                                <Widget IsVisible="@IsEditEnabled" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren">
+                                                    <Children>
+                                                        <ButtonWidget HeightSizePolicy="Fixed" WidthSizePolicy="StretchToParent" SuggestedHeight="75" HorizontalAlignment="Center" Command.Click="ExecuteCreateNewEntry"
+                                                            Brush="CustomTitles.Frame" UpdateChildrenStates="false" ClipContents="true" MarginBottom="10" IsEnabled="@IsEditEnabled">
+                                                            <Children>
+                                                                <RichTextWidget Text="@CreateNewEntryName" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center" MarginLeft="10" DoNotAcceptEvents="true" />
+                                                                <HintWidget DataSource="{AddNewEntryHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right"
+                                                                    Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" />
+                                                            </Children>
+                                                        </ButtonWidget>
+                                                    </Children>
+                                                </Widget>
+
+                                            </Children>
+                                        </ListPanel>
+                                    </Children>
+                                </Widget>
+                            </Children>
+
+                        </ScrollablePanel>
+
+                        <Standard.VerticalScrollbar Id="CustomTitlesDefaultListScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Bottom" MarginLeft="2" MarginTop="1"
+                            MarginBottom="1" />
+                    </Children>
+                </Widget>
+
+                <!--additional button-->
+                <Widget HeightSizePolicy="Fixed" SuggestedHeight="40" WidthSizePolicy="CoverChildren" VerticalAlignment="Bottom" HorizontalAlignment="Left" MarginBottom="20" MarginLeft="20"
+                    IsVisible="@IsAdditionalButtonVisible">
+                    <Children>
+                        <ButtonWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" DoNotPassEventsToChildren="true" Brush="ButtonBrush2" IsEnabled="@IsAdditionalButtonVisible"
+                            Command.Click="ExecuteAdditionalButtonPressed">
+                            <Children>
+                                <TextWidget VerticalAlignment="Center" HorizontalAlignment="Center" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" MarginLeft="40" MarginRight="40" MarginTop="5"
+                                    MarginBottom="5" Text="@AdditionalButtonText" Brush.FontSize="25" />
+                                <HintWidget DataSource="{AdditionalButtonHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
+                                    Command.HoverEnd="ExecuteEndHint" />
+                            </Children>
+                        </ButtonWidget>
+                    </Children>
+                </Widget>
+            </Children>
+        </CTTitleConfigBackground>
+    </Window>
+
+</Prefab>

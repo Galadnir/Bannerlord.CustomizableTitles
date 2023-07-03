@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Module>
+	<Name value="Customizable Titles" />
+	<Id value="Bannerlord.CustomizableTitles" />
+	<Version value="v1.0.0"/>
+	<SingleplayerModule value="true"/>
+	<MultiplayerModule value="false"/>
+	<DependedModules>
+		<DependedModule Id="Native" version="1.1.5.21456"/>
+		<DependedModule Id="SandBoxCore" version="1.1.5.21456"/>
+		<DependedModule Id="Sandbox" version="1.1.5.21456"/>
+		<DependedModule Id="CustomBattle" version="1.1.5.21456"/>
+		<DependedModule Id="StoryMode" version="1.1.5.21456"/>
+		<DependedModule Id="Bannerlord.Harmony" version="2.3.0.169"/>
+		<DependedModule Id="Bannerlord.MBOptionScreen" version="5.7.2.0"/>
+	</DependedModules>
+	<SubModules>
+		<SubModule>
+			<Name value="Customizable Titles"/>
+			<DLLName value="CustomizableTitles.dll"/>
+			<SubModuleClassType value=" Bannerlord.TitlesForLords.src.main.Core.TitlesForLordsSubModule"/>
+			<Tags />
+		</SubModule>
+	</SubModules>
+	<Xmls/>
+</Module>

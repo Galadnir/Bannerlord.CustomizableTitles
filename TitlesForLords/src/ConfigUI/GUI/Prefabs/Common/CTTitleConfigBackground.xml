@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+
+        <Widget Id="TitleConfigBackground" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginTop="190">
+
+            <Children>
+
+                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent">
+
+                    <Children>
+
+                        <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"
+                            Brush="Frame1Brush" MarginTop="0">
+
+                            <Children>
+
+                                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent"
+                                    MarginTop="60" MarginLeft="10" MarginRight="10" MarginBottom="10">
+                                    <LogicalChildrenLocation />
+                                </Widget>
+
+                            </Children>
+
+                        </BrushWidget>
+
+
+
+                        <Standard.DialogCloseButtons Parameter.CancelButtonAction="ExecuteCancel"
+                            Parameter.DoneButtonAction="ExecuteDone" Parameter.CancelButtonText="Cancel"
+                            Parameter.DoneButtonText="Done" />
+                    </Children>
+                </Widget>
+
+            </Children>
+
+        </Widget>
+
+    </Window>
+
+</Prefab>

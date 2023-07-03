@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+
+    <Constants>
+        <Constant Name="ButtonConst.Height" BrushLayer="Default" BrushName="SPOptions.Dropdown.Center" BrushValueType="Height" />
+    </Constants>
+
+    <Window>
+        <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent">
+            <Children>
+                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" DataSource="{CurrentlyEditing}">
+                    <Children>
+                        <CTButtonListWidget />
+                    </Children>
+                </Widget>
+
+                <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" SuggestedWidth="300" HeightSizePolicy="Fixed" MarginBottom="20" MarginLeft="20" SuggestedHeight="!ButtonConst.Height"
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom" Brush="SPOptions.Dropdown.Center" Command.Click="ExecuteToggle">
+                    <Children>
+                        <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center" VerticalAlignment="Center" PositionYOffset="1"
+                            Brush="SPOptions.Dropdown.Center.Text" Text="@CurrentToggleButtonText" />
+                        <HintWidget DataSource="{CurrentToggleHint}" DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Command.HoverBegin="ExecuteBeginHint"
+                            Command.HoverEnd="ExecuteEndHint" />
+                    </Children>
+                </ButtonWidget>
+            </Children>
+        </Widget>
+    </Window>
+</Prefab>

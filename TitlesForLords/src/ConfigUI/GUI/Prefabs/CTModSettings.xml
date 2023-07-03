@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+
+    <Constants>
+        <Constant Name="ButtonConst.Height" BrushLayer="Default" BrushName="SPOptions.Dropdown.Center" BrushValueType="Height" />
+    </Constants>
+
+    <Window>
+        <CTTitleConfigBackground>
+            <Children>
+
+                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed" SuggestedWidth="680" MarginTop="10" MarginLeft="10" MarginRight="10" HorizontalAlignment="Center"
+                    LayoutImp.LayoutMethod="VerticalBottomToTop">
+
+                    <Children>
+                        <!--Checkbox settings-->
+                        <ListPanel DataSource="{CheckboxSettings}" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" LayoutImp.LayoutMethod="VerticalBottomToTop">
+                            <ItemTemplate>
+                                <CTCheckboxWithHint />
+                            </ItemTemplate>
+                        </ListPanel>
+
+                        <!-- Edit Configs Button-->
+                        <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" MarginTop="50" MarginRight="100" MarginLeft="100" SuggestedHeight="!ButtonConst.Height"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Brush="SPOptions.Dropdown.Center" Command.Click="ExecuteEditConfigs">
+                            <Children>
+                                <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center" VerticalAlignment="Center" PositionYOffset="1"
+                                    Brush="SPOptions.Dropdown.Center.Text" Text="Edit Title Configurations" />
+
+                            </Children>
+                        </ButtonWidget>
+
+                        <!-- View kingdoms and cultures for submodule Button-->
+                        <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" MarginTop="25" MarginRight="100" MarginLeft="100" SuggestedHeight="!ButtonConst.Height"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Brush="SPOptions.Dropdown.Center" Command.Click="ExecuteViewKingdomsAndCultures">
+                            <Children>
+                                <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center" VerticalAlignment="Center" PositionYOffset="1"
+                                    Brush="SPOptions.Dropdown.Center.Text" Text="View known Kingdoms and Cultures" />
+
+                            </Children>
+                        </ButtonWidget>
+
+                    </Children>
+
+                </ListPanel>
+            </Children>
+        </CTTitleConfigBackground>
+    </Window>
+
+</Prefab>

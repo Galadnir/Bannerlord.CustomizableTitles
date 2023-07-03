@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <Widget Id="CustomizableTitlesProperties" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginBottom="80">
+            <Children>
+                <!-- Format for a list is: ScrollPanel -> Widget ClipRect -> ListPanel/Widget InnerPanel -> Items-->
+                <!-- ScrollablePanel needs: Reference to ClipRect, reference to ElementsList, reference to a scroll bar-->
+                <!-- Widget ClipRect needs width size policy to be CoverChildren and height size to be StretchToParent -->
+                <!-- ListPanel/Widget InnerPanel needs LayoutImp.LayoutMethod. Search for LayoutMethod in dnSpy for options. Size policies need to be CoverChildren -->
+                <!-- ListPanel Items needs ItemTemplate containing the screen to be used for each item. Size policies need to be CoverChildren.
+             DataSource property must be assigned using the {} braces. Example: DataSource="{DataSourcePropertyName}" -->
+                <ScrollablePanel Id="CustomizableTitlesPropertiesScrollablePanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlightment="Left" VerticalAlignment="Bottom"
+                    AutoHideScrollBars="true" ClipRect="CustomizableTitlesPropertiesClipRect" InnerPanel="CustomizableTitlesPropertiesClipRect\CustomizableTitlesPropertiesList"
+                    VerticalScrollbar="..\CustomizableTitlesPropertiesScrollbar\Scrollbar" MouseScrollAxis="Vertical">
+                    <Children>
+                        <Widget Id="CustomizableTitlesPropertiesClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                            <Children>
+                                <ListPanel Id="CustomizableTitlesPropertiesList" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" MarginTop="10" MarginLeft="150" MarginRight="210"
+                                    LayoutImp.LayoutMethod="VerticalBottomToTop">
+                                    <Children>
+
+                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Title properties"
+                                            Brush.FontSize="30" />
+                                        <!-- Divider -->
+                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />
+                                        <CTMainTitleProperties DataSource="{MainTitleProperties}" MarginBottom="55" />
+
+                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Villager properties"
+                                            Brush.FontSize="30" />
+                                        <!-- Divider -->
+                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />
+                                        <CTVillagerProperties DataSource="{VillagerProperties}" MarginBottom="55" />
+
+                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Caravan properties"
+                                            Brush.FontSize="30" />
+                                        <!-- Divider -->
+                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />
+                                        <CTCaravanProperties DataSource="{CaravanProperties}" MarginBottom="5" />
+
+                                    </Children>
+                                </ListPanel>
+                            </Children>
+                        </Widget>
+                    </Children>
+
+                </ScrollablePanel>
+
+                <Standard.VerticalScrollbar Id="CustomizableTitlesPropertiesScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Bottom" MarginLeft="2" MarginTop="1"
+                    MarginBottom="1" />
+            </Children>
+        </Widget>
+    </Window>
+</Prefab>

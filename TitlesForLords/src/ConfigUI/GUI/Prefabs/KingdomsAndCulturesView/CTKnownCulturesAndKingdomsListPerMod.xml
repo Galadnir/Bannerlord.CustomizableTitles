@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+
+        <ListPanel Id="KnownCulturesAndKingdomsListPerMod" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" MarginBottom="10" LayoutImp.LayoutMethod="VerticalBottomToTop">
+            <Children>
+
+                <!-- Divider -->
+                <Widget WidthSizePolicy="Fixed" SuggestedWidth="1300" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top" Sprite="GradientDivider_9"
+                    AlphaFactor="0.4" MarginBottom="7" />
+
+                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" LayoutImp.LayoutMethod="VerticalBottomToTop" DataSource="{Entries}">
+                    <ItemTemplate>
+                        <CTKnownCulturesAndKingdomsListEntry />
+                    </ItemTemplate>
+                </ListPanel>
+
+            </Children>
+        </ListPanel>
+
+    </Window>
+
+</Prefab>

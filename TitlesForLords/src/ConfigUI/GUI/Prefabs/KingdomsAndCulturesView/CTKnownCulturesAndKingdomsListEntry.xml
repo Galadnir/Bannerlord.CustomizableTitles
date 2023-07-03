@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+
+        <Widget Id="KnownCulturesAndKingdomsListEntry" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent">
+            <Children>
+
+                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" LayoutImp.LayoutMethod="HorizontalLeftToRight" MarginBottom="2">
+                    <Children>
+                        <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren">
+							<Children>
+								<RichTextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" Text="@Mod" />
+
+							</Children>
+						</Widget>
+						<Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren">
+							<Children>
+								<RichTextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" Text="@Kingdom" />
+
+							</Children>
+						</Widget>
+						<Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren">
+							<Children>
+								<RichTextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Left" Text="@Culture" />
+
+							</Children>
+						</Widget>
+                    </Children>
+                </ListPanel>
+
+            </Children>
+        </Widget>
+
+    </Window>
+
+</Prefab>
