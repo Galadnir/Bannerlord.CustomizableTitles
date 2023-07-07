@@ -165,9 +165,6 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 		}
 
 		internal void DeleteConfig(TitleConfiguration config) {
-			if (config?.Options.IsDefault != false) {
-				return;
-			}
 			_titleConfigs.Remove(config);
 		}
 

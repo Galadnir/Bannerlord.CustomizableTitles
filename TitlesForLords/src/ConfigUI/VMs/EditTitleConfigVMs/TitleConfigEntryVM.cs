@@ -45,7 +45,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigsVM {
 		[DataSourceProperty]
 		public HintViewModel CopyHint { get; } = new HintViewModel(new TextObject("Copy this config under a new name. If a default configuration is copied, the copy is not a default configuration and can therefore be edited."));
 		[DataSourceProperty]
-		public HintViewModel DeleteHint { get; } = new HintViewModel(new TextObject("Delete this config. Default configurations cannot be deleted."));
+		public HintViewModel DeleteHint { get; } = new HintViewModel(new TextObject("Delete this config."));
 		[DataSourceProperty]
 		public HintViewModel PriorityHint { get; } = new HintViewModel(new TextObject("Edit the priority of this configuration. Configurations are checked for titles to apply in order of their priority."));
 
@@ -82,6 +82,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigsVM {
 
 		public void ExecuteDelete() {
 			ModSettings.Instance.DeleteConfig(this.Config);
+			DeleteHint.ExecuteEndHint();
 			_titleConfigurationsVM.RefreshValues();
 			_baseVM.DisableForwardInHistory();
 		}

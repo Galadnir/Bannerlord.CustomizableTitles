@@ -50,7 +50,7 @@
 
                 <!--Delete Button-->
                 <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteDelete" VerticalAlignment="Center" HorizontalAlignment="Right" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="180"
-                    SuggestedHeight="40" Brush="ButtonBrush3" PositionXOffset="-130" IsEnabled="@IsNonDefaultActionPermitted">
+                    SuggestedHeight="40" Brush="ButtonBrush3" PositionXOffset="-130">
                     <Children>
                         <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="Delete" />
                         <HintWidget DataSource="{DeleteHint}" HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Right" Command.HoverBegin="ExecuteBeginHint"
