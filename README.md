@@ -1,3 +1,5 @@
+# What this Mod does
+
 A small mod that adds customizable titles to Mount & Blade: Bannerlord. Additionally, the names of owned villagers and caravans, and the names of armies belonging to lords can also be customized.
 These options can be set in a general manner for kingdoms and cultures depending on clan tier or relation to the ruler or more specific, for individual characters or clans.
 
