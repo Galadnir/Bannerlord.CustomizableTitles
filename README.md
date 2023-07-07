@@ -5,7 +5,7 @@ When there are multiple sets of properties for the same lord they are merged tog
 
 For example:
 
-A lord belongs to the clan "fen Seanel" and to the culture "Empire". There are rules defined for both the culture "Empire" and the clan "fen Seanel", then all properties defined for the clan "fen Seanel" overwrite all such properties in "Empire" for this lord, but all properties in "Empire" which are undefined in "fen Seanel" are still used.
+A lord belongs to the clan "fen Seanel" and to a kingdom with the culture "Empire". There are rules defined for both the culture "Empire" and the clan "fen Seanel", then all properties defined for the clan "fen Seanel" overwrite all such properties in "Empire" for this lord, but all properties in "Empire" which are undefined in "fen Seanel" are still used. If we extend this example to also include the lords specific kingdom "Western Empire", then all properties defined for "Western Empire" overwrite those from the culture "Empire", but are still overwritten by those from the clan "fen Seanel".
 
 # Installation
 
