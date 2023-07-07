@@ -7,4 +7,4 @@ Head over to the NexusMods page of this mod to install
 
 # For Modders
 
-Modders of (total) conversion mods can also use the configuration UI of this mod to create and export a config to include in their mod, which is then automatically loaded by this mod if this mod is also installed by the user. When exporting a configuration, it is possible to set a UID, which can in the future be used to update your configuration by exporting a new configuration with the same UID.
+Modders of (total) conversion mods can also use the configuration UI of this mod to create and export a title configuration to include in their mod. That configuration is then automatically loaded by this mod if this mod is also installed by the user. When exporting a configuration, it is possible to set a UID, which can in the future be used to update your configuration by exporting a new configuration with the same UID.
