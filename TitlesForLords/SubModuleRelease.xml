@@ -6,13 +6,15 @@
 	<SingleplayerModule value="true"/>
 	<MultiplayerModule value="false"/>
 	<DependedModules>
-		<DependedModule Id="Native" version="1.1.5.21456"/>
-		<DependedModule Id="SandBoxCore" version="1.1.5.21456"/>
-		<DependedModule Id="Sandbox" version="1.1.5.21456"/>
-		<DependedModule Id="CustomBattle" version="1.1.5.21456"/>
-		<DependedModule Id="StoryMode" version="1.1.5.21456"/>
-		<DependedModule Id="Bannerlord.Harmony" version="2.3.0.169"/>
-		<DependedModule Id="Bannerlord.MBOptionScreen" version="5.7.2.0"/>
+		<DependedModule Id="Native" DependentVersion="v1.1.5"/>
+		<DependedModule Id="SandBoxCore" DependentVersion="v1.1.5"/>
+		<DependedModule Id="Sandbox" DependentVersion="v1.1.5"/>
+		<DependedModule Id="CustomBattle" DependentVersion="v1.1.5"/>
+		<DependedModule Id="StoryMode" DependentVersion="v1.1.5"/>
+		<DependedModule Id="Bannerlord.Harmony" DependentVersion="v2.3.0"/>
+		<DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.7.2"/>
+		<DependedModule Id="Bannerlord.ButterLib" DependentVersion="v2.8.0" />
+		<DependedModule Id="Bannerlord.UIExtenderEx" DependentVersion="v2.8.0" />
 	</DependedModules>
 	<SubModules>
 		<SubModule>
