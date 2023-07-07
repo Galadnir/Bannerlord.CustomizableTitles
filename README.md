@@ -3,7 +3,7 @@ These options can be set in a general manner for kingdoms and cultures depending
 
 # Installation
 
-Head over to the NexusModsPage of this mod to install
+Head over to the NexusMods page of this mod to install
 
 # For Modders
 
