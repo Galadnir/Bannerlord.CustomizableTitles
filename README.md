@@ -25,6 +25,6 @@ Modders of (total) conversion mods can also use the configuration UI of this mod
 
 # Additional Notes
 
-The source code contains outdated syntax, because this mod was originally developed in .NET Framework 4.7.x, because I followed an outdated tutorial.
+The source code contains outdated syntax, because this mod was originally developed in .NET Framework 4.7.x, because I followed an outdated tutorial when starting to write this mod.
 
 The project configuration assumes that steam is installed in its default location (i.e. C:\Program Files (x86)\Steam) for building.
