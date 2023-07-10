@@ -76,7 +76,7 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 				_loadedVersion = loadedSettings.LoadedVersion;
 				_subModuleToCultures = loadedSettings.SubModuleToCultures;
 				_subModuleToKingdoms = loadedSettings.SubModuleToKingdoms;
-				_deadSpecialRulingClanMembersPerCampaign = loadedSettings.DeadSpecialRulingClanMembersPerCampaign ?? new Dictionary<string, IDictionary<string, RulingClanPossibility>>(); // TODO: remove coalesce only there because added to exisiting save for now
+				_deadSpecialRulingClanMembersPerCampaign = loadedSettings.DeadSpecialRulingClanMembersPerCampaign;
 				TrackAllNameChanges = loadedSettings.TrackAllNameChanges;
 				CopyConfigOnAnyNameChange = loadedSettings.CopyConfigOnAnyNameChange;
 				UpdateAllConfigsOnAnyNameChange = loadedSettings.UpdateAllConfigsOnAnyNameChange;
