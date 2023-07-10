@@ -15,7 +15,7 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 	public enum RulingClanPossibility { Ruler, SpouseOfRuler, ChildOfRuler, Member}
 	internal sealed class ModSettings {
 
-		internal static readonly string SavefileLocation = $"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}/Documents/Mount and Blade II Bannerlord/Configs/ModSettings/Global/CustomizableTitles/CustomizableTitlesSettings.json";
+		internal static readonly string SavefileLocation = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}/CustomizableTitlesSettings.json";
 		internal static readonly string ConfigJsonsBasePath = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}/../../../";
 		internal const string ConfigJsonName = "CustomizableTitlesModConfig.json";
 		internal static readonly string SuccessfullyLoadedConfigJsonName = $"LoadedSuccessfully_{ConfigJsonName}";
