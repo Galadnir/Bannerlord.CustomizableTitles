@@ -12,8 +12,10 @@ using TaleWorlds.Core;
 namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 
 	public enum ModVersion { v1 }
-	public enum RulingClanPossibility { Ruler, SpouseOfRuler, ChildOfRuler, Member}
+	public enum RulingClanPossibility { Ruler, SpouseOfRuler, ChildOfRuler, Member }
 	internal sealed class ModSettings {
+
+		internal static string MBBannerlordSteamID = "261550";
 
 		internal static readonly string SavefileLocation = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}/CustomizableTitlesSettings.json";
 		internal static readonly string ConfigJsonsBasePath = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}/../../../";
@@ -106,7 +108,7 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 
 		internal IList<string> LoadAndSaveNewJsonConfigFiles() {
 			var loadedConfigNames = new List<string>();
-			foreach (string configJson in Directory.GetFiles(ConfigJsonsBasePath, ConfigJsonName, SearchOption.AllDirectories)) {
+			foreach (string configJson in GetAllConfigJsonFiles()) {
 				var loadedSuccessfully = true;
 				StreamReader sr = File.OpenText(configJson);
 				try {
@@ -194,12 +196,29 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 
 		internal void RulingClanMemberDied(string campaignId, Hero victim, RulingClanPossibility rulerRelationship) {
 			if (!_deadSpecialRulingClanMembersPerCampaign.ContainsKey(campaignId)) {
-				_deadSpecialRulingClanMembersPerCampaign[campaignId] = new Dictionary<string,  RulingClanPossibility>();
+				_deadSpecialRulingClanMembersPerCampaign[campaignId] = new Dictionary<string, RulingClanPossibility>();
 			}
 			if (victim?.Id is null) {
 				return;
 			}
 			_deadSpecialRulingClanMembersPerCampaign[campaignId][victim.Id.ToString()] = rulerRelationship;
+		}
+
+		private IEnumerable<string> GetAllConfigJsonFiles() {
+			string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+			IEnumerable<string> additionalConfigs = new string[0];
+			if (assemblyPath.Contains("workshop") && assemblyPath.Contains(MBBannerlordSteamID)) {
+				string gameModulesDirectory = $"{ConfigJsonsBasePath}../../../common/Mount & Blade II Bannerlord/Modules/";
+				if (Directory.Exists(gameModulesDirectory)) {
+					additionalConfigs = Directory.GetFiles(gameModulesDirectory, ConfigJsonName, SearchOption.AllDirectories);
+				}
+			} else {
+				string workshopDirectory = $"{ConfigJsonsBasePath}../../../workshop/content/{MBBannerlordSteamID}/";
+				if (Directory.Exists(workshopDirectory)) {
+					additionalConfigs = Directory.GetFiles(workshopDirectory, ConfigJsonName, SearchOption.AllDirectories);
+				}
+			}
+			return Directory.GetFiles(ConfigJsonsBasePath, ConfigJsonName, SearchOption.AllDirectories).Union(additionalConfigs);
 		}
 
 		private class ModSettingsSerializable {
@@ -219,7 +238,7 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 			public TitleProperties GlobalDefault { get; set; }
 
 			[JsonConstructor]
-			public ModSettingsSerializable(ModVersion loadedVersion, List<TitleConfiguration> titleConfigs, Dictionary<string, HashSet<string>> subModuleToCultures, Dictionary<string, HashSet<string>> subModuleToKingdoms, Dictionary<string, IDictionary<string, RulingClanPossibility>> deadSpecialRulingClanMembersPerCampaign,bool trackAllNameChanges, bool copyConfigOnAnyNameChange, bool updateAllConfigsOnAnyNameChange, bool applyTitleConfigToPlayer, bool applyTitleConfigToPlayerCompanions, bool applyToPlayerCaravans, TitleProperties globalDefault) {
+			public ModSettingsSerializable(ModVersion loadedVersion, List<TitleConfiguration> titleConfigs, Dictionary<string, HashSet<string>> subModuleToCultures, Dictionary<string, HashSet<string>> subModuleToKingdoms, Dictionary<string, IDictionary<string, RulingClanPossibility>> deadSpecialRulingClanMembersPerCampaign, bool trackAllNameChanges, bool copyConfigOnAnyNameChange, bool updateAllConfigsOnAnyNameChange, bool applyTitleConfigToPlayer, bool applyTitleConfigToPlayerCompanions, bool applyToPlayerCaravans, TitleProperties globalDefault) {
 				this.LoadedVersion = loadedVersion;
 				this.TitleConfigs = titleConfigs;
 				this.SubModuleToCultures = subModuleToCultures;
