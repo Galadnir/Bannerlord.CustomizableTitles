@@ -13,8 +13,6 @@
 		<DependedModule Id="StoryMode" DependentVersion="v1.1.5"/>
 		<DependedModule Id="Bannerlord.Harmony" DependentVersion="v2.3.0"/>
 		<DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.7.2"/>
-		<DependedModule Id="Bannerlord.ButterLib" DependentVersion="v2.8.0" />
-		<DependedModule Id="Bannerlord.UIExtenderEx" DependentVersion="v2.8.0" />
 	</DependedModules>
 	<SubModules>
 		<SubModule>
