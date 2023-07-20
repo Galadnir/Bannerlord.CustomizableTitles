@@ -17,7 +17,7 @@ Hopefully the hints in the configuration UI are enough to figure out the priorit
 
 # Installation
 
-Head over to the NexusMods page of this mod to install
+Head over to the [NexusMods](https://www.nexusmods.com/mountandblade2bannerlord/mods/5748) page of this mod to install 
 
 # For Modders
 
