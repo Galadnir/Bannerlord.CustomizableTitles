@@ -11,6 +11,10 @@ using TaleWorlds.Core;
 
 namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 
+	// patch notes:
+	// moved save location
+	// track active configs based on user ==> if savefile was already converted, only default configs active now
+
 	public enum ModVersion { v1, v2 }
 	public enum RulingClanPossibility { Ruler, SpouseOfRuler, ChildOfRuler, Member }
 	internal sealed class ModSettings {
@@ -21,9 +25,13 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 
 #if DEBUG
 		internal static readonly string SavefileLocation = $@"{Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)}\Mount and Blade II Bannerlord\Mods\CustomizableTitles--Debug\CustomizableTitlesSettings.json";
+		internal static readonly string McmModFolderPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Mount and Blade II Bannerlord\Configs\ModSettings\Global\CustomizableTitles--Debug";
 #else
 		internal static readonly string SavefileLocation = $@"{Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)}\Mount and Blade II Bannerlord\Mods\CustomizableTitles\CustomizableTitlesSettings.json";
+		internal static readonly string McmModFolderPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Mount and Blade II Bannerlord\Configs\ModSettings\Global\CustomizableTitles";
 #endif
+
+		internal static readonly string UserActiveConfigsFile = $@"{McmModFolderPath}\activeConfigs.json";
 
 		internal static readonly string ConfigJsonsBasePath = $@"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\..\..\..\";
 		internal const string ConfigJsonName = "CustomizableTitlesModConfig.json";
@@ -74,6 +82,10 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 			} else {
 				LoadFromSavefile();
 			}
+			if (_loadedVersion == ModVersion.v1) {
+				ConvertToV2();
+			}
+			LoadWhichConfigsActive();
 		}
 
 		private void LoadFromSavefile() {
@@ -115,6 +127,40 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 				File.Move(V1SavefileLocation, SavefileLocation);
 			}
 			return !File.Exists(SavefileLocation);
+		}
+
+		private void ConvertToV2() {
+			if (File.Exists(UserActiveConfigsFile)) {
+				return;
+			}
+			SaveUserActiveConfigs();
+			_loadedVersion = ModVersion.v2;
+		}
+
+		private void SaveUserActiveConfigs() {
+			var activeConfigIDs = ActiveTitleConfigs.Select(config => config.Metadata.Uid);
+			new FileInfo(UserActiveConfigsFile).Directory.Create();
+			File.WriteAllText(UserActiveConfigsFile, JsonConvert.SerializeObject(activeConfigIDs));
+		}
+
+		private void LoadWhichConfigsActive() {
+			if (!File.Exists(UserActiveConfigsFile)) {
+				foreach (var config in _titleConfigs) {
+					config.Options.IsActive = config.Options.IsDefault;
+				}
+				return;
+			}
+			StreamReader sr = File.OpenText(UserActiveConfigsFile);
+			try {
+				var userActiveConfigIDs = new JsonSerializer().Deserialize<List<string>>(new JsonTextReader(sr));
+				foreach (var config in _titleConfigs) {
+					config.Options.IsActive = userActiveConfigIDs.Contains(config.Metadata.Uid);
+				}
+			} catch (Exception e) when (e is UnauthorizedAccessException || e is NotSupportedException || e is JsonException) {
+
+			} finally {
+				sr.Close();
+			}
 		}
 
 		internal IList<string> LoadAndSaveNewJsonConfigFiles() {
@@ -165,6 +211,7 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 			File.WriteAllText(SavefileLocation, JsonConvert.SerializeObject(new ModSettingsSerializable(), new JsonSerializerSettings {
 				NullValueHandling = NullValueHandling.Ignore,
 			}));
+			SaveUserActiveConfigs();
 		}
 
 		internal void Restore() {
