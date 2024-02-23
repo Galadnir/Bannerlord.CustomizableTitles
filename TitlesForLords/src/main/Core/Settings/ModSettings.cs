@@ -11,21 +11,28 @@ using TaleWorlds.Core;
 
 namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 
-	public enum ModVersion { v1 }
+	public enum ModVersion { v1, v2 }
 	public enum RulingClanPossibility { Ruler, SpouseOfRuler, ChildOfRuler, Member }
 	internal sealed class ModSettings {
 
 		internal static string MBBannerlordSteamID = "261550";
 
-		internal static readonly string SavefileLocation = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}/CustomizableTitlesSettings.json";
-		internal static readonly string ConfigJsonsBasePath = $"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}/../../../";
+		internal static readonly string V1SavefileLocation = $@"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\CustomizableTitlesSettings.json";
+
+#if DEBUG
+		internal static readonly string SavefileLocation = $@"{Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)}\Mount and Blade II Bannerlord\Mods\CustomizableTitles--Debug\CustomizableTitlesSettings.json";
+#else
+		internal static readonly string SavefileLocation = $@"{Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)}\Mount and Blade II Bannerlord\Mods\CustomizableTitles\CustomizableTitlesSettings.json";
+#endif
+
+		internal static readonly string ConfigJsonsBasePath = $@"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}\..\..\..\";
 		internal const string ConfigJsonName = "CustomizableTitlesModConfig.json";
 		internal static readonly string SuccessfullyLoadedConfigJsonName = $"LoadedSuccessfully_{ConfigJsonName}";
 		internal static readonly string FailedToLoadConfigJsonName = $"{ConfigJsonName}_failed_to_parse.reason.txt";
 
 		static internal ModSettings Instance = new ModSettings();
 
-		internal const ModVersion CurrentVersion = ModVersion.v1;
+		internal const ModVersion CurrentVersion = ModVersion.v2;
 
 		ModVersion _loadedVersion;
 
@@ -103,6 +110,10 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 		}
 
 		private bool IsFirstLoad() {
+			if (File.Exists(V1SavefileLocation) && !File.Exists(SavefileLocation)) {
+				new FileInfo(SavefileLocation).Directory.Create();
+				File.Move(V1SavefileLocation, SavefileLocation);
+			}
 			return !File.Exists(SavefileLocation);
 		}
 
