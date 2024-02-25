@@ -25,6 +25,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 		IGauntletMovie _popUpMovie;
 
 		internal ConfigUIScreen() {
+			// TODO in in-game screen, pop-up that warns that potential unsaved changes due to name tracking are discarded
 			ModSettings.Instance.Restore(); // in case there are unsaved changes from playing
 			_baseLayer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
 			_baseVM = new ConfigUIBaseVM(this);
@@ -65,7 +66,9 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 			layer.InputRestrictions.ResetInputRestrictions();
 			layer.IsFocusLayer = false;
 			ScreenManager.TryLoseFocus(layer);
-			RemoveLayer(layer);
+			try {
+				RemoveLayer(layer);
+			} catch (NullReferenceException) { }
 		}
 
 
