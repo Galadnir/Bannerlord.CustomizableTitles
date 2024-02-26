@@ -242,7 +242,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 
 		private void UnloadAllLayers() {
 			foreach (var layerData in _configUILayers) {
-				layerData.Layer.ReleaseMovie(layerData.VMData.Movie);
+				this.Screen.UnloadLayer(layerData.Layer, layerData.VMData.Movie);
 			}
 			_configUILayers.Clear();
 			_forwardHistory.Clear();

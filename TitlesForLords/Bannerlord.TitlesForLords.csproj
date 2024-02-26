@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
@@ -311,7 +311,6 @@
 
 	<ItemGroup>
 	  <Folder Include="src\main\Core\GamePatches\" />
-	  <Folder Include="src\main\Core\Settings\" />
 	  <Folder Include="src\ConfigUI\" />
 	</ItemGroup>
 
