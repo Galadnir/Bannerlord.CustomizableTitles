@@ -1,5 +1,6 @@
 ﻿using Bannerlord.TitleOverhaul.src.ConfigUI.VMs;
 using Bannerlord.TitleOverhaul.src.ConfigUI.VMs.Common;
+using Bannerlord.TitlesForLords.src.main.Core;
 using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using System;
 using TaleWorlds.CampaignSystem;
@@ -14,8 +15,8 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 		// TODO in in-game screen, pop-up that warns that potential unsaved changes due to name tracking are discarded
 		// TODO clear name caches after settings were changed while in-game
 		// TODO in-game key bindings
-		// TODO crash when opening through main menu => options
 		// TODO black screen base for opening in-game
+		// TODO add butterlib to dependencies in submodule
 
 		// TODO simple editor
 
@@ -44,17 +45,6 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 			_baseVM.LoadModSettingsLayer();
 		}
 
-		protected override void OnFrameTick(float dt) {
-			_baseVM.OnFrameTick(_baseLayer);
-			if (!(_popUpLayer is null)) {
-				if (_popUpLayer.Input.IsKeyReleased(TaleWorlds.InputSystem.InputKey.Escape)) {
-					_popUpVM.ExecuteDiscard();
-				}
-				if (_popUpLayer.Input.IsKeyReleased(TaleWorlds.InputSystem.InputKey.Enter)) {
-					_popUpVM.ExecuteConfirm();
-				}
-			}
-		}
 		public void Close() { // all inner vm movies must be released before (although I don't know if they actually have to be released, I'm just doing it to be sure)
 			UnloadLayer(_baseLayer, _baseMovie);
 			if (Campaign.Current is null) {
@@ -94,6 +84,17 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 			_popUpLayer = new GauntletLayer(LayerPriority.InputPopUp);
 			_popUpMovie = _popUpLayer.LoadMovie("CTEditableTextPopUp", vm);
 			_popUpVM = vm;
+			TitlesForLordsSubModule.NavigateBackwardsHotkey.IsEnabled = false;
+			TitlesForLordsSubModule.NavigateForwardsHotkey.IsEnabled = false;
+
+			var PopUpConfirmHotkey = TitlesForLordsSubModule.PopUpConfirmHotkey;
+			PopUpConfirmHotkey.IsEnabled = true;
+			PopUpConfirmHotkey.OnReleasedEvent += _popUpVM.ExecuteConfirm;
+
+			var PopUpDiscardHotkey = TitlesForLordsSubModule.PopUpDiscardHotkey;
+			PopUpDiscardHotkey.IsEnabled = true;
+			PopUpDiscardHotkey.OnReleasedEvent += _popUpVM.ExecuteDiscard;
+
 			ActivateLayer(_popUpLayer);
 		}
 
@@ -101,6 +102,18 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 			if (_popUpMovie is null) {
 				return;
 			}
+
+			TitlesForLordsSubModule.NavigateBackwardsHotkey.IsEnabled = true;
+			TitlesForLordsSubModule.NavigateForwardsHotkey.IsEnabled = true;
+
+			var PopUpConfirmHotkey = TitlesForLordsSubModule.PopUpConfirmHotkey;
+			PopUpConfirmHotkey.IsEnabled = false;
+			PopUpConfirmHotkey.OnReleasedEvent -= _popUpVM.ExecuteConfirm;
+
+			var PopUpDiscardHotkey = TitlesForLordsSubModule.PopUpDiscardHotkey;
+			PopUpDiscardHotkey.IsEnabled = false;
+			PopUpDiscardHotkey.OnReleasedEvent -= _popUpVM.ExecuteDiscard;
+
 			UnloadLayer(_popUpLayer, _popUpMovie);
 			_popUpLayer = null;
 			_popUpMovie = null;

@@ -1,11 +1,7 @@
-﻿using Bannerlord.TitlesForLords.src.main.Core.Settings;
-using Bannerlord.TitlesForLords.src.main.Core.Settings.TitleConfig;
-using System;
+﻿using Bannerlord.TitlesForLords.src.main.Core;
+using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.Core;
 using TaleWorlds.Core.ViewModelCollection.Information;
 using TaleWorlds.Engine.GauntletUI;
@@ -106,6 +102,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 			var modSettingsVM = new ModSettingsVM(this);
 			var modSettingsMovie = modSettingsLayer.LoadMovie(MovieName, modSettingsVM);
 			PushLayerAndMovie(modSettingsLayer, modSettingsMovie, modSettingsVM, true);
+			RegisterHotkeys();
 		}
 
 		public void ExecuteCancel() {
@@ -178,25 +175,8 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 			previousTopLayer.OnAfterExecuteForwardOnNewTopScreen();
 		}
 
-		internal void OnFrameTick(GauntletLayer baseLayer) {
-			OnFrameTickForLayer(baseLayer);
-			if (_configUILayers.IsEmpty()) {
-				return;
-			}
-			var layerData = _configUILayers.Peek();
-			OnFrameTickForLayer(layerData.Layer);
-		}
-
-		internal void OnFrameTickForLayer(GauntletLayer layer) {
-			if (layer.Input.IsKeyReleased(TaleWorlds.InputSystem.InputKey.Escape) || layer.Input.IsKeyReleased(TaleWorlds.InputSystem.InputKey.X1MouseButton)) {
-				ExecuteBack();
-			}
-			if (layer.Input.IsKeyReleased(TaleWorlds.InputSystem.InputKey.X2MouseButton)) {
-				ExecuteForward();
-			}
-		}
-
 		internal void CloseConfigUI() {
+			UnregisterHotkeys();
 			UnloadAllLayers();
 			this.Screen.Close();
 		}
@@ -255,6 +235,26 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 
 		private void Save() {
 			ModSettings.Instance.Save();
+		}
+
+		private void RegisterHotkeys() {
+			var backwardsHotkey = TitlesForLordsSubModule.NavigateBackwardsHotkey;
+			backwardsHotkey.IsEnabled = true;
+			backwardsHotkey.OnReleasedEvent += ExecuteBack;
+
+			var forwardsHotkey = TitlesForLordsSubModule.NavigateForwardsHotkey;
+			forwardsHotkey.IsEnabled = true;
+			forwardsHotkey.OnReleasedEvent += ExecuteForward;
+		}
+
+		private void UnregisterHotkeys() {
+			var backwardsHotkey = TitlesForLordsSubModule.NavigateBackwardsHotkey;
+			backwardsHotkey.IsEnabled = false;
+			backwardsHotkey.OnReleasedEvent -= ExecuteBack;
+
+			var forwardsHotkey = TitlesForLordsSubModule.NavigateForwardsHotkey;
+			forwardsHotkey.IsEnabled = false;
+			forwardsHotkey.OnReleasedEvent -= ExecuteForward;
 		}
 	}
 }
