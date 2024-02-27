@@ -7,7 +7,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 
@@ -214,6 +216,11 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 				NullValueHandling = NullValueHandling.Ignore,
 			}));
 			SaveUserActiveConfigs();
+			if (!(Campaign.Current is null)) {
+				foreach (PartyComponent party in Campaign.Current.MobileParties.Select(x => x.PartyComponent)) {
+					party.ClearCachedName();
+				}
+			}
 		}
 
 		internal void Restore() {

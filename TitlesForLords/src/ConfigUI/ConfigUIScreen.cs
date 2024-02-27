@@ -14,11 +14,11 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 
 		// TODO in in-game screen, pop-up that warns that potential unsaved changes due to name tracking are discarded
 		// TODO clear name caches after settings were changed while in-game
-		// TODO in-game key bindings
 		// TODO black screen base for opening in-game
 		// TODO add butterlib to dependencies in submodule
 
 		// TODO simple editor
+		// TODO show current kingdoms and cultures
 
 		readonly GauntletLayer _baseLayer;
 		readonly IGauntletMovie _baseMovie;
