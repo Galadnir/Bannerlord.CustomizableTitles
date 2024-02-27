@@ -13,7 +13,6 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 	public class ConfigUIScreen : ScreenBase {
 
 		// TODO in in-game screen, pop-up that warns that potential unsaved changes due to name tracking are discarded
-		// TODO clear name caches after settings were changed while in-game
 		// TODO black screen base for opening in-game
 		// TODO add butterlib to dependencies in submodule
 
