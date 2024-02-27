@@ -238,23 +238,24 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 		}
 
 		private void RegisterHotkeys() {
+			UnregisterHotkeys();
 			var backwardsHotkey = TitlesForLordsSubModule.NavigateBackwardsHotkey;
 			backwardsHotkey.IsEnabled = true;
-			backwardsHotkey.OnReleasedEvent += ExecuteBack;
+			backwardsHotkey.IsDownAndReleasedEvent += ExecuteBack;
 
 			var forwardsHotkey = TitlesForLordsSubModule.NavigateForwardsHotkey;
 			forwardsHotkey.IsEnabled = true;
-			forwardsHotkey.OnReleasedEvent += ExecuteForward;
+			forwardsHotkey.IsDownAndReleasedEvent += ExecuteForward;
 		}
 
 		private void UnregisterHotkeys() {
 			var backwardsHotkey = TitlesForLordsSubModule.NavigateBackwardsHotkey;
 			backwardsHotkey.IsEnabled = false;
-			backwardsHotkey.OnReleasedEvent -= ExecuteBack;
+			backwardsHotkey.IsDownAndReleasedEvent -= ExecuteBack;
 
 			var forwardsHotkey = TitlesForLordsSubModule.NavigateForwardsHotkey;
 			forwardsHotkey.IsEnabled = false;
-			forwardsHotkey.OnReleasedEvent -= ExecuteForward;
+			forwardsHotkey.IsDownAndReleasedEvent -= ExecuteForward;
 		}
 	}
 }

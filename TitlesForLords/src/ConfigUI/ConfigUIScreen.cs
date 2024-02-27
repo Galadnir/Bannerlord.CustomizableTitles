@@ -89,11 +89,11 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 
 			var PopUpConfirmHotkey = TitlesForLordsSubModule.PopUpConfirmHotkey;
 			PopUpConfirmHotkey.IsEnabled = true;
-			PopUpConfirmHotkey.OnReleasedEvent += _popUpVM.ExecuteConfirm;
+			PopUpConfirmHotkey.IsDownAndReleasedEvent += _popUpVM.ExecuteConfirm;
 
 			var PopUpDiscardHotkey = TitlesForLordsSubModule.PopUpDiscardHotkey;
 			PopUpDiscardHotkey.IsEnabled = true;
-			PopUpDiscardHotkey.OnReleasedEvent += _popUpVM.ExecuteDiscard;
+			PopUpDiscardHotkey.IsDownAndReleasedEvent += _popUpVM.ExecuteDiscard;
 
 			ActivateLayer(_popUpLayer);
 		}
@@ -108,11 +108,11 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 
 			var PopUpConfirmHotkey = TitlesForLordsSubModule.PopUpConfirmHotkey;
 			PopUpConfirmHotkey.IsEnabled = false;
-			PopUpConfirmHotkey.OnReleasedEvent -= _popUpVM.ExecuteConfirm;
+			PopUpConfirmHotkey.IsDownAndReleasedEvent -= _popUpVM.ExecuteConfirm;
 
 			var PopUpDiscardHotkey = TitlesForLordsSubModule.PopUpDiscardHotkey;
 			PopUpDiscardHotkey.IsEnabled = false;
-			PopUpDiscardHotkey.OnReleasedEvent -= _popUpVM.ExecuteDiscard;
+			PopUpDiscardHotkey.IsDownAndReleasedEvent -= _popUpVM.ExecuteDiscard;
 
 			UnloadLayer(_popUpLayer, _popUpMovie);
 			_popUpLayer = null;
