@@ -7,8 +7,7 @@
     <Window>
         <Widget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren">
             <Children>
-
-
+                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment ="Left" VerticalAlignment ="Top" Sprite="Frame1_canvas" ColorFactor="0"/>
                 <Standard.TopPanel Parameter.Title="Configure Titles">
                     <Children>
 
@@ -71,7 +70,6 @@
                     </Children>
 
                 </Standard.TopPanel>
-
             </Children>
         </Widget>
 
