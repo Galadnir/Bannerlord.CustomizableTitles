@@ -1,5 +1,6 @@
 ﻿using Bannerlord.TitleOverhaul.src.ConfigUI.VMs;
 using Bannerlord.TitleOverhaul.src.ConfigUI.VMs.Common;
+using Bannerlord.TitlesForLords.src.ConfigUI.VMs.Common;
 using Bannerlord.TitlesForLords.src.main.Core;
 using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using System;
@@ -27,8 +28,11 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 		EditableTextPopUpVM _popUpVM;
 		IGauntletMovie _popUpMovie;
 
+		GauntletLayer _inquiryPopUpLayer;
+		InquiryPopUpVM _inquiryPopUpVM;
+		IGauntletMovie _inquiryPopUpMovie;
+
 		internal ConfigUIScreen() {
-			ModSettings.Instance.Restore(); // in case there are unsaved changes from playing
 			_baseLayer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
 			_baseVM = new ConfigUIBaseVM(this);
 			_baseMovie = _baseLayer.LoadMovie("CTConfigUIBase", _baseVM);
@@ -40,6 +44,18 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 				ScreenManager.PushScreen(this); // without replacing, if opened multiple times, this screen would also be open after closing the MCM screen
 			}
 			_baseVM.LoadModSettingsLayer();
+			if (!(Campaign.Current is null) && ModSettings.Instance.TrackAllNameChanges) {
+				OpenInquiryPopUp(new InquiryPopUpVM("Warning",
+					"Warning, if you have \"Track Name Changes\" enabled, then editing your configurations while in a campaign can cause inconsistencies, because unsaved changes are discarded upon entering this menu. This should only happen rarely though. Enter anyway?\n\n" +
+					"Note: This warning only appears if you have \"Track Name Changes\" enabled.",
+					"Yes",
+					"No",
+					() => { },
+					() => _baseVM.CloseConfigUI(),
+					this)
+					);
+			}
+			ModSettings.Instance.Restore(); // in case there are unsaved changes from playing
 		}
 
 		public void Close() { // all inner vm movies must be released before (although I don't know if they actually have to be released, I'm just doing it to be sure)
@@ -115,6 +131,29 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 			_popUpLayer = null;
 			_popUpMovie = null;
 			_popUpVM = null;
+		}
+
+		internal void OpenInquiryPopUp(InquiryPopUpVM vm) {
+			_inquiryPopUpLayer = new GauntletLayer(LayerPriority.InquiryPopUp);
+			_inquiryPopUpMovie = _inquiryPopUpLayer.LoadMovie("CTInquiryPopUp", vm);
+			_inquiryPopUpVM = vm;
+			TitlesForLordsSubModule.NavigateBackwardsHotkey.IsEnabled = false;
+			TitlesForLordsSubModule.NavigateForwardsHotkey.IsEnabled = false;
+
+			ActivateLayer(_inquiryPopUpLayer);
+		}
+
+		internal void CloseInquiryPopUp() {
+			if (_inquiryPopUpMovie is null) {
+				return;
+			}
+			TitlesForLordsSubModule.NavigateBackwardsHotkey.IsEnabled = true;
+			TitlesForLordsSubModule.NavigateForwardsHotkey.IsEnabled = true;
+
+			UnloadLayer(_inquiryPopUpLayer, _inquiryPopUpMovie);
+			_inquiryPopUpLayer = null;
+			_inquiryPopUpMovie = null;
+			_inquiryPopUpVM = null;
 		}
 	}
 }

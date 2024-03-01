@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Window>
+        <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent">
+            <Children>
+                <BrushWidget HeightSizePolicy="Fixed" WidthSizePolicy="Fixed" SuggestedWidth="530" SuggestedHeight="430" VerticalAlignment="Center" HorizontalAlignment="Center" Brush="Frame1Brush">
+                    <Children>
+                        <ListPanel HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop" MarginTop="20" MarginBottom="10">
+                            <Children>
+                                <!--Title-->
+                                <RichTextWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" Text="@Title"
+                                    Brush.FontSize="35" />
+                                <!--Text-->
+                                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" Text="@StringValue" Brush="MCM.Text" Brush.FontSize="30"/>
+                                <!-- Exit PopUp buttons-->
+                                <ListPanel HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Center" LayoutImp.LayoutMethod="HorizontalLeftToRight">
+                                    <Children>
+                                        <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Children>
+                                                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteDeny" VerticalAlignment="Center" HorizontalAlignment="Center" WidthSizePolicy="Fixed"
+                                                    HeightSizePolicy="Fixed" SuggestedWidth="160" MarginRight="10" SuggestedHeight="40" Brush="ButtonBrush3">
+                                                    <Children>
+                                                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="@DenyText" Brush.FontSize="27" />
+                                                    </Children>
+                                                </ButtonWidget>
+                                            </Children>
+                                        </Widget>
+                                        <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Children>
+                                                <ButtonWidget DoNotPassEventsToChildren="true" Command.Click="ExecuteAccept" VerticalAlignment="Center" HorizontalAlignment="Center" WidthSizePolicy="Fixed"
+                                                    HeightSizePolicy="Fixed" SuggestedWidth="160" MarginLeft="10" SuggestedHeight="40" Brush="ButtonBrush1">
+                                                    <Children>
+                                                        <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Text="@AcceptText" Brush.FontSize="27" />
+                                                    </Children>
+                                                </ButtonWidget>
+                                            </Children>
+                                        </Widget>
+                                    </Children>
+                                </ListPanel>
+                            </Children>
+                        </ListPanel>
+
+                    </Children>
+                </BrushWidget>
+
+            </Children>
+        </Widget>
+    </Window>
+</Prefab>
