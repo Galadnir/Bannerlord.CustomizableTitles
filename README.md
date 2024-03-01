@@ -1,3 +1,5 @@
+# Broken as of v1.2
+
 # What this Mod does
 
 This is a small mod that adds customizable titles to Mount & Blade II: Bannerlord. Additionally, the names of owned villagers and caravans, and the names of armies belonging to lords can also be customized.
@@ -17,7 +19,7 @@ Hopefully the hints in the configuration UI are enough to figure out the priorit
 
 # Installation
 
-Head over to the NexusMods page of this mod to install
+Head over to the [NexusMods](https://www.nexusmods.com/mountandblade2bannerlord/mods/5748) page of this mod to install 
 
 # For Modders
 
