@@ -4,7 +4,7 @@
     <Window>
         <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent">
             <Children>
-                <BrushWidget HeightSizePolicy="Fixed" WidthSizePolicy="Fixed" SuggestedWidth="530" SuggestedHeight="430" VerticalAlignment="Center" HorizontalAlignment="Center" Brush="Frame1Brush">
+                <BrushWidget HeightSizePolicy="Fixed" WidthSizePolicy="Fixed" SuggestedWidth="530" SuggestedHeight="530" VerticalAlignment="Center" HorizontalAlignment="Center" Brush="Frame1Brush">
                     <Children>
                         <ListPanel HeightSizePolicy="StretchToParent" WidthSizePolicy="CoverChildren" LayoutImp.LayoutMethod="VerticalBottomToTop" MarginTop="20" MarginBottom="10">
                             <Children>

@@ -4,9 +4,12 @@ using Bannerlord.TitlesForLords.src.main.Core.HotKeys;
 using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using MCM.Abstractions.FluentBuilder;
 using MCM.Common;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 
 namespace Bannerlord.TitlesForLords.src.main.Core {
@@ -46,6 +49,25 @@ namespace Bannerlord.TitlesForLords.src.main.Core {
 				.SetFolderName(string.Empty)
 				.SetSubFolder(string.Empty)
 				.CreateGroup("", groupBuilder => groupBuilder
+					.AddBool("Customizable_Titles_List_Current_Kingdoms_And_Cultures", "List current Kingdoms and Cultures", new ProxyRef<bool>(() => false, _ => {
+						if (Campaign.Current is null) {
+							InformationManager.DisplayMessage(new InformationMessage("Error, you must be in a campaign and then access this menu through \"Escape => Options => Mod Options => Customizable Titles\""));
+						} else {
+							var kingdoms = Campaign.Current.MobileParties.Select(party => party.LeaderHero?.Clan?.Kingdom?.Name.ToString()).Distinct().ToList();
+							kingdoms.Remove(null);
+							kingdoms.Sort();
+							var cultures = Campaign.Current.MobileParties.Select(party => party.LeaderHero?.Clan?.Kingdom?.Culture?.Name.ToString()).Distinct().ToList();
+							cultures.Remove(null);
+							cultures.Sort();
+							InformationManager.DisplayMessage(new InformationMessage($"Kingdoms: {string.Join(", ", kingdoms)}"));
+							InformationManager.DisplayMessage(new InformationMessage($"Cultures: {string.Join(", ", cultures)}"));
+							ModSettings.Instance.RegisterLastListedKingdomsAndCultures(new HashSet<string>(kingdoms), new HashSet<string>(cultures));
+						}
+					}),
+					boolBuilder => boolBuilder
+					.SetHintText("List all kingdoms and cultures present in your current campaign")
+					.SetRequireRestart(false)
+					.SetOrder(3))
 					.AddBool("Customizalbe_Titles_Export_Config_UI", "Export Configuration", new ProxyRef<bool>(() => false, _ => {
 						if (IsOptionsMenuOpen && Campaign.Current is null) {
 							InformationManager.DisplayMessage(new InformationMessage(_failedToLoadText));

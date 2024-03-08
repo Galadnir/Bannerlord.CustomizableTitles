@@ -31,6 +31,10 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 			_toNextScreen = Command.EditConfigs;
 		}
 
+		public void ExecuteEditConfigsSimple() {
+
+		}
+
 		public void ExecuteViewKingdomsAndCultures() {
 			var layer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
 			var vm = new CulturesAndKingdomsForModsVM(this, BaseVM);

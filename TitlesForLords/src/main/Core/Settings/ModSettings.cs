@@ -53,6 +53,9 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 		Dictionary<string, HashSet<string>> _subModuleToKingdoms;
 		Dictionary<string, IDictionary<string, RulingClanPossibility>> _deadSpecialRulingClanMembersPerCampaign;
 
+		HashSet<string> _lastListedKingdoms;
+		HashSet<string> _lastListedCultures;
+
 		internal IList<TitleConfiguration> TitleConfigs {
 			get => _titleConfigs;
 		}
@@ -90,6 +93,11 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 				ConvertToV2();
 			}
 			LoadWhichConfigsActive();
+		}
+
+		internal void RegisterLastListedKingdomsAndCultures(HashSet<string> kingdoms, HashSet<string> cultures) {
+			_lastListedKingdoms = kingdoms;
+			_lastListedCultures = cultures;
 		}
 
 		private void LoadFromSavefile() {
@@ -225,6 +233,12 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 
 		internal void Restore() {
 			LoadFromSavefile();
+			if (!(_lastListedCultures is null)) { // as the settings are restored upon entering the config menu, the last listed cultures and kingdoms have to be set here
+				_subModuleToCultures["last listed kingdoms and cultures"] = _lastListedCultures;
+			}
+			if (!(_lastListedKingdoms is null)) {
+				_subModuleToKingdoms["last listed kingdoms and cultures"] = _lastListedKingdoms;
+			}
 		}
 
 		internal TitleConfiguration CopyExistingTitleConfig(TitleConfiguration config) {
