@@ -1,14 +1,8 @@
 ﻿using Bannerlord.TitleOverhaul.src.ConfigUI.VMs.Common;
-using Bannerlord.TitleOverhaul.src.ConfigUI.VMs.TitleConfigsVM;
 using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements;
 using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements.TitlePropertiesContainer;
 using Bannerlord.TitlesForLords.src.main.Core.Settings.TitleConfig;
-using Bannerlord.TitlesForLords.src.main.Core.Settings.TitleConfig.TitleConfigElements;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.Core.ViewModelCollection.Information;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.Library;

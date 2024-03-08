@@ -1,5 +1,4 @@
 ﻿using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements;
-using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using Bannerlord.TitlesForLords.Tests.tests.Core.Settings;
 using Newtonsoft.Json;
 

@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.Library;
 
 namespace Bannerlord.TitleOverhaul.src.main.Core.Settings.SettingsPatches {
 

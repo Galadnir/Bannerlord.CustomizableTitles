@@ -9,7 +9,6 @@ using System.Reflection;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
 
 namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 

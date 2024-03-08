@@ -1,7 +1,6 @@
 ﻿using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements;
 using Bannerlord.TitlesForLords.src.main.Core.GamePatches;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;

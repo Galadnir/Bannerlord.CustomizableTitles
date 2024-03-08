@@ -2,7 +2,6 @@
 using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements;
 using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements.TitlePropertiesContainer;
 using Newtonsoft.Json;
-using System;
 using TaleWorlds.CampaignSystem;
 
 namespace Bannerlord.TitlesForLords.src.main.Core.Settings.TitleConfig.TitleConfigElements.TitlePropertiesContainer {

@@ -1,13 +1,6 @@
 ﻿using Bannerlord.TitlesForLords.src.main.Core.Settings;
-using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.Library;
 
 namespace Bannerlord.TitleOverhaul.src.main.Core.Settings.SettingsPatches {
 	internal class StoreDeadSpecialRulingClanMembers : CampaignEventReceiver {
