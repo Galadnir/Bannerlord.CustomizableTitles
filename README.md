@@ -1,4 +1,10 @@
-# Broken as of v1.2
+# v1.1 Patch Notes
+ - Moved the save location of the configurations from the mod's installation folder to "ProgramData\ProgramData\Mount and Blade II Bannerlord\Mods\CustomizableTitles", so that configurations are no longer deleted when deleting the mod in order to make updating easier.
+ - active configs are now tracked per user (only starts after a user opens the game using this mod)
+ - the configuration menu of this mod is no openable while in-game through "Escape => Options => Mod Options => Customizable Titles"
+ - the hotkeys available in the configuration menu are now configurable via "Options => Keybindings"
+ - added a button to list the kingdoms and cultures present in the current campaign
+ - added a simpler menu, that hopefully  allows people other than myself to configure configurations
 
 # What this Mod does
 
