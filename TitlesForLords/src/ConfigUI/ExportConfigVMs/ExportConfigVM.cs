@@ -107,12 +107,12 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.ExportConfigVMs {
 			_exportFile = new JsonConfigFile(ModName, copy, modCultureNames, modKingdomNames);
 			CreateKingdomEntries();
 			CreateCultureEntries();
+			_exportConfigScreen.TearDownSelectedConfigPopUp();
 			_exportConfigScreen.ActivateLayer(_exportConfigScreen.AddKingdomsAndCulturesLayer);
 		}
 
 		public void ExecuteDiscardInputModNameAndUID() {
 			_exportConfigScreen.TearDownSelectedConfigPopUp();
-			_exportConfigScreen.ActivateLayer(_exportConfigScreen.SelectConfigLayer);
 		}
 
 		public void ExecuteAddKingdom() {

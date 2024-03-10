@@ -1,13 +1,13 @@
 ﻿using Bannerlord.TitleOverhaul.src.ConfigUI.ExportConfigVMs;
+using Bannerlord.TitleOverhaul.src.ConfigUI.VMs;
 using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.ScreenSystem;
 
 namespace Bannerlord.TitleOverhaul.src.ConfigUI {
-	internal class ExportConfigScreen : ScreenBase {
+	internal class ExportConfigScreen {
 
-		readonly ScreenBase _previousScreen;
 		readonly ExportConfigVM _vm;
 
 		internal GauntletLayer SelectConfigLayer { get; }
@@ -20,40 +20,35 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 		internal ExportConfigScreen() {
 			ModSettings.Instance.Restore(); // in case there are unsaved changes from playing
 			_vm = new ExportConfigVM(this);
-			this.SelectConfigLayer = new GauntletLayer(0, "GauntletLayer", true);
-			this.AddKingdomsAndCulturesLayer = new GauntletLayer(20, "GauntletLayer", true);
-			_previousScreen = ScreenManager.TopScreen;
+			this.SelectConfigLayer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
+			this.AddKingdomsAndCulturesLayer = new GauntletLayer(LayerPriority.AddKingdomsAndCulturesLayer, "GauntletLayer", true);
 			this.SelectConfigMovie = this.SelectConfigLayer.LoadMovie("CTSelectModConfig", _vm);
 			this.AddKingdomsAndCulturesMovie = this.AddKingdomsAndCulturesLayer.LoadMovie("CTExportKingdomsAndCultures", _vm);
 			ActivateLayer(this.SelectConfigLayer);
-			ScreenManager.PopScreen();
-			ScreenManager.PushScreen(this); // without replacing, if opened multiple times, this screen would also be open after closing the MCM screen
 		}
 
 		internal void Close() {
 			SelectConfigLayer.ReleaseMovie(SelectConfigMovie);
 			AddKingdomsAndCulturesLayer.ReleaseMovie(AddKingdomsAndCulturesMovie);
-			RemoveLayer(SelectConfigLayer);
-			RemoveLayer(AddKingdomsAndCulturesLayer);
-			ScreenManager.PopScreen();
-			ScreenManager.PushScreen(_previousScreen);
+			ScreenManager.TopScreen.RemoveLayer(SelectConfigLayer);
+			ScreenManager.TopScreen.RemoveLayer(AddKingdomsAndCulturesLayer);
 		}
 
 		internal void ActivateLayer(GauntletLayer layer) {
 			layer.InputRestrictions.SetInputRestrictions();
 			layer.IsFocusLayer = true;
-			AddLayer(layer);
+			ScreenManager.TopScreen.AddLayer(layer);
 			ScreenManager.TrySetFocus(layer);
 		}
 
 		internal void CreateSelectedConfigPopUp() {
-			this.InputModNameAndUIDLayer = new GauntletLayer(10);
+			this.InputModNameAndUIDLayer = new GauntletLayer(LayerPriority.InputModNameAndUIDLayer);
 			this.InputModNameAndUIDMovie = this.InputModNameAndUIDLayer.LoadMovie("CTModNameAndUIDPopUp", _vm);
 		}
 
 		internal void TearDownSelectedConfigPopUp() {
 			InputModNameAndUIDLayer.ReleaseMovie(InputModNameAndUIDMovie);
-			RemoveLayer(InputModNameAndUIDLayer);
+			ScreenManager.TopScreen.RemoveLayer(InputModNameAndUIDLayer);
 		}
 	}
 }

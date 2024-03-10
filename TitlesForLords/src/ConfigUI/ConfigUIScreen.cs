@@ -11,7 +11,7 @@ using TaleWorlds.ScreenSystem;
 
 namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 
-	public class ConfigUIScreen : ScreenBase {
+	public class ConfigUIScreen {
 
 		// TODO in in-game screen, pop-up that warns that potential unsaved changes due to name tracking are discarded
 
@@ -21,7 +21,6 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 		readonly GauntletLayer _baseLayer;
 		readonly IGauntletMovie _baseMovie;
 		readonly ConfigUIBaseVM _baseVM;
-		readonly ScreenBase _previousScreen;
 		readonly ScreenBase _activeScreen;
 
 		GauntletLayer _popUpLayer;
@@ -33,38 +32,19 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 		IGauntletMovie _inquiryPopUpMovie;
 
 		internal ConfigUIScreen() {
+			ModSettings.Instance.Restore(); // in case there are unsaved changes from playing
+
 			_baseLayer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
 			_baseVM = new ConfigUIBaseVM(this);
 			_baseMovie = _baseLayer.LoadMovie("CTConfigUIBase", _baseVM);
-			_previousScreen = ScreenManager.TopScreen;
-			_activeScreen = Campaign.Current is null ? this : ScreenManager.TopScreen;
+			_activeScreen = ScreenManager.TopScreen;
 			ActivateLayer(_baseLayer);
-			if (Campaign.Current is null) {
-				ScreenManager.PopScreen();
-				ScreenManager.PushScreen(this); // without replacing, if opened multiple times, this screen would also be open after closing the MCM screen
-			}
+
 			_baseVM.LoadModSettingsLayer();
-			if (!(Campaign.Current is null) && ModSettings.Instance.TrackAllNameChanges) {
-				OpenInquiryPopUp(new InquiryPopUpVM("Warning",
-					"Warning, if you have \"Track Name Changes\" enabled, then editing your configurations while in a campaign can cause inconsistencies, because unsaved changes are discarded upon entering this menu. This should only happen rarely though. Enter anyway?\n\n" +
-					"Note: This warning only appears if you have \"Track Name Changes\" enabled.",
-					"Yes",
-					"No",
-					() => { },
-					() => _baseVM.CloseConfigUI(),
-					this)
-					);
-			}
-			ModSettings.Instance.Restore(); // in case there are unsaved changes from playing
 		}
 
 		public void Close() { // all inner vm movies must be released before (although I don't know if they actually have to be released, I'm just doing it to be sure)
 			UnloadLayer(_baseLayer, _baseMovie);
-			if (Campaign.Current is null) {
-				DeactivateAllLayers();
-				ScreenManager.PopScreen();
-				ScreenManager.PushScreen(_previousScreen);
-			}
 		}
 
 		public void ActivateLayer(GauntletLayer layer) {

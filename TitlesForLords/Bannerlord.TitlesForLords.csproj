@@ -22,8 +22,9 @@
 
 
 	<ItemGroup>
+		<PackageReference Include="Bannerlord.ButterLib" Version="2.8.16" />
 		<PackageReference Include="Bannerlord.Lib.Harmony" Version="2.2.2" />
-		<PackageReference Include="Bannerlord.MCM" Version="5.7.2" IncludeAssets="compile" />
+		<PackageReference Include="Bannerlord.MCM" Version="5.9.2" IncludeAssets="compile" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
@@ -35,12 +36,6 @@
 
 
 	<ItemGroup>
-		<Reference Include="Bannerlord.ButterLib">
-		  <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.ButterLib\bin\Win64_Shipping_Client\Bannerlord.ButterLib.dll</HintPath>
-		</Reference>
-		<Reference Include="Bannerlord.ButterLib.Implementation.1.2.4">
-		  <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Bannerlord.ButterLib\bin\Win64_Shipping_Client\Bannerlord.ButterLib.Implementation.1.2.4.dll</HintPath>
-		</Reference>
 		<Reference Include="SandBox">
 			<HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.dll</HintPath>
 			<Private>False</Private>

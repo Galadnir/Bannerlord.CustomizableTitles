@@ -11,7 +11,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigsVM {
 	public class TitleConfigEntryVM : ViewModel {
 
 		ConfigUIBaseVM _baseVM;
-		
+
 		string _configName;
 		readonly TitleConfigurationsVM _titleConfigurationsVM;
 

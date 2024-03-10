@@ -4,6 +4,7 @@ using Bannerlord.TitlesForLords.src.main.Core.HotKeys;
 using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using MCM.Abstractions.FluentBuilder;
 using MCM.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -48,7 +49,8 @@ namespace Bannerlord.TitlesForLords.src.main.Core {
 				.SetFolderName(string.Empty)
 				.SetSubFolder(string.Empty)
 				.CreateGroup("", groupBuilder => groupBuilder
-					.AddBool("Customizable_Titles_List_Current_Kingdoms_And_Cultures", "List current Kingdoms and Cultures", new ProxyRef<bool>(() => false, _ => {
+					.AddButton("Customizable_Titles_List_Current_Kingdoms_And_Cultures", "List current Kingdoms and Cultures", new ProxyRef<Action>(() =>
+					() => {
 						if (Campaign.Current is null) {
 							InformationManager.DisplayMessage(new InformationMessage("Error, you must be in a campaign and then access this menu through \"Escape => Options => Mod Options => Customizable Titles\""));
 						} else {
@@ -62,29 +64,49 @@ namespace Bannerlord.TitlesForLords.src.main.Core {
 							InformationManager.DisplayMessage(new InformationMessage($"Cultures: {string.Join(", ", cultures)}"));
 							ModSettings.Instance.RegisterLastListedKingdomsAndCultures(new HashSet<string>(kingdoms), new HashSet<string>(cultures));
 						}
-					}),
+					}, _ => { })
+					, "Create lists",
 					boolBuilder => boolBuilder
 					.SetHintText("List all kingdoms and cultures present in your current campaign")
 					.SetRequireRestart(false)
 					.SetOrder(3))
-					.AddBool("Customizalbe_Titles_Export_Config_UI", "Export Configuration", new ProxyRef<bool>(() => false, _ => {
+					.AddButton("Customizalbe_Titles_Export_Config_UI", "Export Configuration", new ProxyRef<Action>(() =>
+					() => {
 						if (IsOptionsMenuOpen && Campaign.Current is null) {
 							InformationManager.DisplayMessage(new InformationMessage(_failedToLoadText));
 							return;
 						}
+						if (!(Campaign.Current is null)) {
+							InformationManager.DisplayMessage(new InformationMessage("Opening this menu reloads the current settings which can discard potential changes caused by tracking name changes. As such, this menu is only accessible through the game's main menu."));
+							return;
+						}
 						var screen = new ExportConfigScreen();
-					}),
+					}, _ => { }),
+					"Open Export Menu",
 					boolBuilder => boolBuilder
 					.SetHintText("Export a title configuration to your desktop to include in your mod")
 					.SetRequireRestart(false)
 					.SetOrder(2))
-					.AddBool("Activate_Customizable_Titles_UI", "Open Customizable Titles settings menu", new ProxyRef<bool>(() => false, _ => {
+					.AddButton("Activate_Customizable_Titles_UI", "Open Customizable Titles settings menu", new ProxyRef<Action>(() =>
+					() => {
 						if (IsOptionsMenuOpen && Campaign.Current is null) {
 							InformationManager.DisplayMessage(new InformationMessage(_failedToLoadText));
 							return;
 						}
-						var screen = new ConfigUIScreen();
-					}),
+						if (!(Campaign.Current is null) && ModSettings.Instance.TrackAllNameChanges) {
+							InformationManager.ShowInquiry(new InquiryData(
+								"Warning",
+								"Warning, if you have \"Track Name Changes\" enabled, then editing your configurations while in a campaign can cause inconsistencies, because unsaved changes are discarded upon entering this menu. This should only happen rarely though. Enter anyway?\n\n" +
+								 "Note: This warning only appears if you have \"Track Name Changes\" enabled.",
+								true, true, "Yes", "No",
+								() => new ConfigUIScreen(),
+								() => { }
+								));
+						} else {
+							var screen = new ConfigUIScreen();
+						}
+					}, _ => { }),
+					"Open Config Menu",
 					boolBuilder => boolBuilder
 					.SetHintText("opens the settings menu for Customizable Titles")
 					.SetRequireRestart(false)
