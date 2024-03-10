@@ -44,8 +44,8 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 		internal void DeleteTierProperties(int oldTier) {
 			_clanTiers.Remove(oldTier);
 		}
-		internal void AddTierProperties(int tier, ClanProperties kingdomProperties) {
-			_clanTiers[tier] = kingdomProperties;
+		internal void AddTierProperties(int tier, ClanProperties clanProperties) {
+			_clanTiers[tier] = clanProperties;
 		}
 
 		private KingdomProperties() {

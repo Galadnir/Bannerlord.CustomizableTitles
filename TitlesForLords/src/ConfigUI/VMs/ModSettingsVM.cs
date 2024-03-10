@@ -8,7 +8,7 @@ using TaleWorlds.Library;
 namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 	public class ModSettingsVM : SettingsLayerBaseVM {
 
-		enum Command { None, EditConfigs, ViewKingdomsAndCultures, }
+		enum Command { None, EditConfigs, EditConfigsSimple, ViewKingdomsAndCultures, }
 
 		Command _toNextScreen;
 		Command _toNextScreenBeforeExecuteBack;
@@ -25,14 +25,18 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 
 		public void ExecuteEditConfigs() {
 			var layer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
-			var vm = new TitleConfigurationsVM(BaseVM);
+			var vm = new TitleConfigurationsVM(BaseVM, false);
 			var movie = layer.LoadMovie("CTTitleConfigurations", vm);
 			BaseVM.PushLayerAndMovie(layer, movie, vm);
 			_toNextScreen = Command.EditConfigs;
 		}
 
 		public void ExecuteEditConfigsSimple() {
-
+			var layer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
+			var vm = new TitleConfigurationsVM(BaseVM, true);
+			var movie = layer.LoadMovie("CTTitleConfigurations", vm);
+			BaseVM.PushLayerAndMovie(layer, movie, vm);
+			_toNextScreen = Command.EditConfigsSimple;
 		}
 
 		public void ExecuteViewKingdomsAndCultures() {
@@ -52,6 +56,9 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 						return;
 					case Command.ViewKingdomsAndCultures:
 						newInstance.ExecuteViewKingdomsAndCultures();
+						return;
+					case Command.EditConfigsSimple:
+						newInstance.ExecuteEditConfigsSimple();
 						return;
 					case Command.None:
 						return;

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <CTTitleConfigBackground>
+            <Children>
+                <Widget Id="SimpleEditorEditTitles" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginBottom="80">
+                            <Children>
+                                <!-- Format for a list is: ScrollPanel -> Widget ClipRect -> ListPanel/Widget InnerPanel -> Items-->
+                                <!-- ScrollablePanel needs: Reference to ClipRect, reference to ElementsList, reference to a scroll bar-->
+                                <!-- Widget ClipRect needs width size policy to be CoverChildren and height size to be StretchToParent -->
+                                <!-- ListPanel/Widget InnerPanel needs LayoutImp.LayoutMethod. Search for LayoutMethod in dnSpy for options. Size policies need to be CoverChildren -->
+                                <!-- ListPanel Items needs ItemTemplate containing the screen to be used for each item. Size policies need to be CoverChildren.
+                            DataSource property must be assigned using the {} braces. Example: DataSource="{DataSourcePropertyName}" -->
+                                <ScrollablePanel Id="SimpleEditorEditTitlesScrollablePanel" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlightment="Left" VerticalAlignment="Bottom"
+                                    AutoHideScrollBars="true" ClipRect="SimpleEditorEditTitlesClipRect" InnerPanel="SimpleEditorEditTitlesClipRect\SimpleEditorEditTitlesList"
+                                    VerticalScrollbar="..\SimpleEditorEditTitlesScrollbar\Scrollbar" MouseScrollAxis="Vertical">
+                                    <Children>
+                                        <Widget Id="SimpleEditorEditTitlesClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+                                            <Children>
+                                                <ListPanel Id="SimpleEditorEditTitlesList" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" MarginTop="10" MarginLeft="150" MarginRight="210"
+                                                    LayoutImp.LayoutMethod="VerticalBottomToTop">
+                                                    <Children>
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Ruler - male"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameRulerMale}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameRulerMale}" />
+
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Ruler - female"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameRulerFemale}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameRulerFemale}" />
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 1 - male"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier1Male}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier1Male}" />                                        
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 1 - female"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier1Female}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier1Female}" />  
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 2 - male"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier2Male}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier2Male}" />                                         
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 2 - female"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier2Female}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier2Female}" />  
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 3 - male"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier3Male}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier3Male}" />                                         
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 3 - female"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier3Female}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier3Female}" />  
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 4 - male"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier4Male}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier4Male}" />                                        
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 4 - female"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier4Female}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier4Female}" />  
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 5 - male"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier5Male}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier5Male}" />                                      
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 5 - female"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier5Female}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier5Female}" />  
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 6 - male"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier6Male}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier6Male}" />                                         
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Clan Tier 6 - female"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameTier6Female}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier6Female}" />  
+                                                    </Children>
+                                                </ListPanel>
+                                            </Children>
+                                        </Widget>
+                                    </Children>
+
+                                </ScrollablePanel>
+
+                                <Standard.VerticalScrollbar Id="SimpleEditorEditTitlesScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Bottom" MarginLeft="2" MarginTop="1"
+                                    MarginBottom="1" />
+                            </Children>
+                        </Widget>
+
+            </Children>
+        </CTTitleConfigBackground>
+        
+    </Window>
+</Prefab>

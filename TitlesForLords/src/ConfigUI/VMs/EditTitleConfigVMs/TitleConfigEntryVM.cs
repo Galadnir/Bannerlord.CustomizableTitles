@@ -1,14 +1,18 @@
 ﻿using Bannerlord.TitleOverhaul.src.ConfigUI.VMs.Common;
 using Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs;
+using Bannerlord.TitlesForLords.src.ConfigUI.VMs.EditTitleConfigVMs.SimpleEditor;
 using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using Bannerlord.TitlesForLords.src.main.Core.Settings.TitleConfig;
 using TaleWorlds.Core.ViewModelCollection.Information;
 using TaleWorlds.Engine.GauntletUI;
+using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigsVM {
 	public class TitleConfigEntryVM : ViewModel {
+
+		bool _isEditSimple;
 
 		ConfigUIBaseVM _baseVM;
 
@@ -56,7 +60,8 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigsVM {
 			}
 		}
 
-		internal TitleConfigEntryVM(TitleConfiguration config, TitleConfigurationsVM titleConfigurationsVM, ConfigUIBaseVM baseVM) {
+		internal TitleConfigEntryVM(TitleConfiguration config, TitleConfigurationsVM titleConfigurationsVM, ConfigUIBaseVM baseVM, bool isEditSimple) {
+			_isEditSimple = isEditSimple;
 			this.Config = config;
 			ConfigName = config.Metadata.Name;
 			if (config.Options.IsDefault) {
@@ -68,8 +73,15 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigsVM {
 
 		public void ExecuteSelect() {
 			var layer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
-			var vm = new EditConfigEntryPointVM(this.Config, _titleConfigurationsVM.BaseVM);
-			var movie = layer.LoadMovie("CTButtonList", vm);
+			SettingsLayerBaseVM vm;
+			IGauntletMovie movie;
+			if (_isEditSimple) {
+				vm = new SimpleEditConfigEntryPointVM(this.Config, _titleConfigurationsVM.BaseVM);
+				movie = layer.LoadMovie("CTButtonListWithNote", vm);
+			} else {
+				vm = new EditConfigEntryPointVM(this.Config, _titleConfigurationsVM.BaseVM);
+				movie = layer.LoadMovie("CTButtonList", vm);
+			}
 			_titleConfigurationsVM.BaseVM.PushLayerAndMovie(layer, movie, vm);
 			_titleConfigurationsVM.NextScreenOpenedBy = this;
 		}

@@ -1,15 +1,19 @@
 ﻿using Bannerlord.TitleOverhaul.src.ConfigUI.VMs.Common;
 using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements.TitlePropertiesContainer;
+using Bannerlord.TitlesForLords.src.ConfigUI.VMs.EditTitleConfigVMs.SimpleEditor;
 using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using Bannerlord.TitlesForLords.src.main.Core.Settings.TitleConfig;
 using System.Collections.Generic;
 using TaleWorlds.Core.ViewModelCollection.Information;
 using TaleWorlds.Engine.GauntletUI;
+using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs.LordTitlesVMs.TitlesForKingdomsVMs {
 	internal class SpecificKingdomPropertiesVM : DefaultListBaseVM {
+
+		bool _isSimpleEdit;
 
 		protected override string ID { get; } = "TitlesForKingdomsSpecificKingdomProperties";
 		protected override string EntryHint { get; } = "Click to configure the properties of all lords belonging to this kingdom. The name must match the kingdom name exactly";
@@ -25,7 +29,8 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs.LordTitle
 
 		protected override IEnumerable<string> EntriesOriginKeys => SpecificKingdomsContainer.Properties.Keys;
 
-		public SpecificKingdomPropertiesVM(TitleConfiguration config, bool isEditable, SettingsLayerBaseVM parent, ConfigUIBaseVM baseVM) : base(config, isEditable, parent, baseVM) {
+		public SpecificKingdomPropertiesVM(TitleConfiguration config, bool isEditable, SettingsLayerBaseVM parent, ConfigUIBaseVM baseVM, bool isSimpleEdit = false) : base(config, isEditable, parent, baseVM) {
+			_isSimpleEdit = isSimpleEdit;
 		}
 		public override void ExecuteCreateNewEntry() {
 			BaseVM.Screen.OpenPopUp(new EditableTextPopUpVM("Enter name of kingdom",
@@ -63,13 +68,27 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs.LordTitle
 		protected override void ExecuteSelectEntry(string kingdomKey, string originalKey) {
 			KingdomProperties properties = SpecificKingdomsContainer.Properties[kingdomKey];
 			var layer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
-			var vm = new KingdomPropertiesVM($"SpecificKingdoms {_config.Metadata.Uid} {originalKey}", kingdomKey, SpecificKingdomsContainer.Properties[kingdomKey], _config, IsEditEnabled,
-				this.IsOpenedEntryValid,
-				() => ModSettings.Instance.TitleConfigs[ModSettings.Instance.TitleConfigs.IndexOf(_config)].
-				TitlesForLords.TitlesForKingdoms.ExplicitKingdomProperties.Properties[NextScreenOpenedWithOriginalKey],
-				BaseVM);
-			var movie = layer.LoadMovie("CTButtonList", vm);
+			SettingsLayerBaseVM vm;
+			IGauntletMovie movie;
+			if (_isSimpleEdit) {
+				vm = new SimpleEditTitlesVM(properties, kingdomKey, BaseVM, this.IsOpenedEntryValid, IsEditEnabled);
+				movie = layer.LoadMovie("CTSimpleEditTitles", vm);
+			} else {
+				vm = new KingdomPropertiesVM($"SpecificKingdoms {_config.Metadata.Uid} {originalKey}", kingdomKey, SpecificKingdomsContainer.Properties[kingdomKey], _config, IsEditEnabled,
+					this.IsOpenedEntryValid,
+					() => ModSettings.Instance.TitleConfigs[ModSettings.Instance.TitleConfigs.IndexOf(_config)].
+					TitlesForLords.TitlesForKingdoms.ExplicitKingdomProperties.Properties[NextScreenOpenedWithOriginalKey],
+					BaseVM);
+				movie = layer.LoadMovie("CTButtonList", vm);
+			}
 			BaseVM.PushLayerAndMovie(layer, movie, vm);
+
+		}
+
+		protected override void TransferAdditionalStatePostResetBeforeBaseState(SettingsLayerBaseVM newInstanceOfThisVM) {
+			if (newInstanceOfThisVM is SpecificKingdomPropertiesVM newInstance) {
+				newInstance._isSimpleEdit = _isSimpleEdit;
+			}
 		}
 
 		private bool IsOpenedEntryValid() {

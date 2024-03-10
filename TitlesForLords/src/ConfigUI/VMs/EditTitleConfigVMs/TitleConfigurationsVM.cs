@@ -7,24 +7,27 @@ using TaleWorlds.Library;
 namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigsVM {
 	public class TitleConfigurationsVM : SettingsLayerBaseVM {
 
+		bool _isEditSimple;
+		
 		TitleConfigEntryVM _nextScreenOpenedBy;
 		TitleConfigEntryVM _nextScreenOpenedByBeforeExecuteBack;
 
-		internal override string PathDescriptor => "Title Configurations";
+		internal override string PathDescriptor => "Title Configurations" + (_isEditSimple ? " (Basic)" : " (Expert)");
 
 		[DataSourceProperty]
 		public MBBindingList<TitleConfigEntryVM> Entries { get; }
 
 		internal TitleConfigEntryVM NextScreenOpenedBy { set => _nextScreenOpenedBy = value; }
 
-		public TitleConfigurationsVM(ConfigUIBaseVM baseVM) : base(baseVM) {
+		public TitleConfigurationsVM(ConfigUIBaseVM baseVM, bool isEditSimple) : base(baseVM) {
+			_isEditSimple = isEditSimple;
 			Entries = new MBBindingList<TitleConfigEntryVM>();
 			CreateEntries();
 		}
 
 		private void CreateEntries() {
 			foreach (var config in ModSettings.Instance.TitleConfigs) {
-				Entries.Add(new TitleConfigEntryVM(config, this, BaseVM));
+				Entries.Add(new TitleConfigEntryVM(config, this, BaseVM, _isEditSimple));
 			}
 			OnPropertyChanged(nameof(Entries));
 		}

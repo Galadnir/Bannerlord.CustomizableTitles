@@ -5,7 +5,7 @@ using TaleWorlds.Localization;
 
 namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.Common {
 	public class EditStringBarVM : ViewModel {
-
+		
 		string _currentValue;
 		string _stringValue;
 		bool _isUndefined;

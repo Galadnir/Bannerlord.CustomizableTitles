@@ -1,15 +1,19 @@
 ﻿using Bannerlord.TitleOverhaul.src.ConfigUI.VMs.Common;
 using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements.TitlePropertiesContainer;
+using Bannerlord.TitlesForLords.src.ConfigUI.VMs.EditTitleConfigVMs.SimpleEditor;
 using Bannerlord.TitlesForLords.src.main.Core.Settings;
 using Bannerlord.TitlesForLords.src.main.Core.Settings.TitleConfig;
 using System.Collections.Generic;
 using TaleWorlds.Core.ViewModelCollection.Information;
 using TaleWorlds.Engine.GauntletUI;
+using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs.LordTitlesVMs.TitlesForKingdomsVMs {
 	internal class CulturePropertiesVM : DefaultListBaseVM {
+
+		bool _isSimpleEdit;
 
 		protected override string ID { get; } = "TitlesForKingdomsSpecificCultureProperties";
 		protected override string EntryHint { get; } = "Click to configure the properties of all lords belonging to kingdoms of this culture. The name must match the culture name exactly";
@@ -25,7 +29,8 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs.LordTitle
 
 		protected override IEnumerable<string> EntriesOriginKeys => CulturesContainer.Properties.Keys;
 
-		public CulturePropertiesVM(TitleConfiguration config, bool isEditable, SettingsLayerBaseVM parent, ConfigUIBaseVM baseVM) : base(config, isEditable, parent, baseVM) {
+		public CulturePropertiesVM(TitleConfiguration config, bool isEditable, SettingsLayerBaseVM parent, ConfigUIBaseVM baseVM, bool isSimpleEdit = false) : base(config, isEditable, parent, baseVM) {
+			_isSimpleEdit = isSimpleEdit;
 		}
 
 		public override void ExecuteCreateNewEntry() {
@@ -64,13 +69,26 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs.LordTitle
 		protected override void ExecuteSelectEntry(string cultureKey, string originalKey) {
 			KingdomProperties properties = CulturesContainer.Properties[cultureKey];
 			var layer = new GauntletLayer(LayerPriority.Base, "GauntletLayer", true);
-			var vm = new KingdomPropertiesVM($"SpecificCulture {_config.Metadata.Uid} {originalKey}", cultureKey, CulturesContainer.Properties[cultureKey], _config, IsEditEnabled,
-				this.IsOpenedEntryValid,
-				() => ModSettings.Instance.TitleConfigs[ModSettings.Instance.TitleConfigs.IndexOf(_config)].
-				TitlesForLords.TitlesForKingdoms.CultureProperties.Properties[NextScreenOpenedWithOriginalKey],
-				BaseVM);
-			var movie = layer.LoadMovie("CTButtonList", vm);
+			SettingsLayerBaseVM vm;
+			IGauntletMovie movie;
+			if (_isSimpleEdit) {
+				vm = new SimpleEditTitlesVM(properties, cultureKey, BaseVM, this.IsOpenedEntryValid, IsEditEnabled);
+				movie = layer.LoadMovie("CTSimpleEditTitles", vm);
+			} else {
+				vm = new KingdomPropertiesVM($"SpecificCulture {_config.Metadata.Uid} {originalKey}", cultureKey, CulturesContainer.Properties[cultureKey], _config, IsEditEnabled,
+					this.IsOpenedEntryValid,
+					() => ModSettings.Instance.TitleConfigs[ModSettings.Instance.TitleConfigs.IndexOf(_config)].
+					TitlesForLords.TitlesForKingdoms.CultureProperties.Properties[NextScreenOpenedWithOriginalKey],
+					BaseVM);
+				movie = layer.LoadMovie("CTButtonList", vm);
+			}
 			BaseVM.PushLayerAndMovie(layer, movie, vm);
+		}
+
+		protected override void TransferAdditionalStatePostResetBeforeBaseState(SettingsLayerBaseVM newInstanceOfThisVM) {
+			if (newInstanceOfThisVM is CulturePropertiesVM newInstance) {
+				newInstance._isSimpleEdit = _isSimpleEdit;
+			}
 		}
 
 		private bool IsOpenedEntryValid() {

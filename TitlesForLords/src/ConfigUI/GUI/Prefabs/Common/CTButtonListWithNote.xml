@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Prefab>
+    <Constants>
+    </Constants>
+
+    <Window>
+        <CTTitleConfigBackground>
+            <Children>
+                <CTButtonListWidget />
+
+                
+                <TextWidget Brush="Encyclopedia.SubPage.Info.Text" WidthSizePolicy="Fixed" SuggestedWidth="560" HeightSizePolicy="CoverChildren" VerticalAlignment="Bottom" HorizontalAlignment="Left" MarginLeft="5"
+                    MarginBottom="5" Brush.FontSize="22"
+                    Text="@Note" />
+            </Children>
+        </CTTitleConfigBackground>
+    </Window>
+</Prefab>

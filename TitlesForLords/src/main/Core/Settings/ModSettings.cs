@@ -1,4 +1,5 @@
 ﻿using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements;
+using Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigElements.TitlePropertiesContainer;
 using Bannerlord.TitlesForLords.src.main.Core.Settings.TitleConfig;
 using Newtonsoft.Json;
 using System;
@@ -145,6 +146,10 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 				return;
 			}
 			SaveUserActiveConfigs();
+			var defaultConfig = _titleConfigs.FirstOrDefault(config => config?.Metadata.Uid == "TitleOverhaulDefaultConfig");
+			if (!(defaultConfig is null)) {
+				defaultConfig.TitlesForLords.Default = RankMember.CreateEmpty();
+			}
 			_loadedVersion = ModVersion.v2;
 		}
 

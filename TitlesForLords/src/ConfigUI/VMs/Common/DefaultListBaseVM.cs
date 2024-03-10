@@ -50,6 +50,8 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.Common {
 		protected abstract void Delete(string entryKey);
 		protected abstract void ExecuteSelectEntry(string entryKey, string originalKey);
 
+		protected virtual void TransferAdditionalStatePostResetBeforeBaseState(SettingsLayerBaseVM newInstanceOfThisVM) { }
+
 		internal void ExecuteRename(string newKey, DefaultListEntryVM calledBy) {
 			if (Rename(calledBy.EntryKey, newKey)) {
 				string originalKey = KeyRenames[calledBy.EntryKey];
@@ -82,6 +84,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.Common {
 		}
 
 		internal override void RestoreNextScreenPostResetAndTransferAdditionalState(SettingsLayerBaseVM newInstanceOfThisVM) {
+			TransferAdditionalStatePostResetBeforeBaseState(newInstanceOfThisVM);
 			if (newInstanceOfThisVM is DefaultListBaseVM newInstance) {
 				newInstance.NextScreenOpenedWithOriginalKey = NextScreenOpenedWithOriginalKey;
 				newInstance.NextScreenOpenedViaAdditionalButton = NextScreenOpenedViaAdditionalButton;

@@ -45,11 +45,7 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 		static Metadata Metadata => new Metadata("TitleOverhaulDefaultConfig", "Calradian Titles", "Base Game", new List<Tuple<string, string>>());
 		static ConfigOptions Options => new ConfigOptions(true, true);
 		static LordTitles LordTitles => new LordTitles(
-			new RankMember(
-				new TitleProperties(),
-				new TitleProperties("Lord ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-				new TitleProperties("Lady ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
-				),
+			RankMember.CreateEmpty(),
 			new TitlesForKingdoms(
 				new KingdomProperties(
 					new Dictionary<int, ClanProperties>(),
