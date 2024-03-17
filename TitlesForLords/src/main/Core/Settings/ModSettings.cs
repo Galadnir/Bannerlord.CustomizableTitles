@@ -13,12 +13,6 @@ using TaleWorlds.Core;
 
 namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 
-	// patch notes:
-	// moved save location
-	// track active configs based on user ==> if savefile was already converted, only default configs active now
-	// config menu now openable in-game
-	// hotkeys now configurable
-
 	public enum ModVersion { v1, v2 }
 	public enum RulingClanPossibility { Ruler, SpouseOfRuler, ChildOfRuler, Member }
 	internal sealed class ModSettings {

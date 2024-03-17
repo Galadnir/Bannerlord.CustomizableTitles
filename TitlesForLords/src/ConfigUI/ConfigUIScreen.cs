@@ -13,11 +13,6 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 
 	public class ConfigUIScreen {
 
-		// TODO in in-game screen, pop-up that warns that potential unsaved changes due to name tracking are discarded
-
-		// TODO simple editor
-		// TODO show current kingdoms and cultures
-
 		readonly GauntletLayer _baseLayer;
 		readonly IGauntletMovie _baseMovie;
 		readonly ConfigUIBaseVM _baseVM;
