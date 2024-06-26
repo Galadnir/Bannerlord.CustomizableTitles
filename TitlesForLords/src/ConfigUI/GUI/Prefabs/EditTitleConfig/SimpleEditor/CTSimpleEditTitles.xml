@@ -136,7 +136,23 @@
                                                         <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
                                                             Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
                                                         <CTEditStringBar DataSource="{TitleBeforeNameTier6Female}" />
-                                                        <CTEditStringBar DataSource="{TitleAfterNameTier6Female}" />  
+                                                        <CTEditStringBar DataSource="{TitleAfterNameTier6Female}" /> 
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Ruler Child - male"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameRulerChildMale}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameRulerChildMale}" />                                         
+
+                                                        <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Ruler Child - female"
+                                                            Brush.FontSize="30" />
+                                                        <!-- Divider -->
+                                                        <Widget WidthSizePolicy="Fixed" SuggestedWidth="1630" PositionXOffset="-50" HorizontalAlignment="Left" HeightSizePolicy="Fixed" SuggestedHeight="2" VerticalAlignment="Top"
+                                                            Sprite="GradientDivider_9" AlphaFactor="0.4" MarginBottom="15" />   
+                                                        <CTEditStringBar DataSource="{TitleBeforeNameRulerChildFemale}" />
+                                                        <CTEditStringBar DataSource="{TitleAfterNameRulerChildFemale}" />   
                                                     </Children>
                                                 </ListPanel>
                                             </Children>

@@ -91,6 +91,16 @@ namespace Bannerlord.TitlesForLords.src.ConfigUI.VMs.EditTitleConfigVMs.SimpleEd
 		[DataSourceProperty]
 		public EditStringBarVM TitleAfterNameTier6Female { get; }
 
+		[DataSourceProperty]
+		public EditStringBarVM TitleBeforeNameRulerChildMale { get; }
+		[DataSourceProperty]
+		public EditStringBarVM TitleAfterNameRulerChildMale { get; }
+
+		[DataSourceProperty]
+		public EditStringBarVM TitleBeforeNameRulerChildFemale { get; }
+		[DataSourceProperty]
+		public EditStringBarVM TitleAfterNameRulerChildFemale { get; }
+
 		public SimpleEditTitlesVM(KingdomProperties properties, string pathDescriptor, ConfigUIBaseVM baseVM, Func<bool> isValid, bool isEditable) : base(baseVM) {
 			PathDescriptor = pathDescriptor;
 			_isValid = isValid;
@@ -119,6 +129,8 @@ namespace Bannerlord.TitlesForLords.src.ConfigUI.VMs.EditTitleConfigVMs.SimpleEd
 			(TitleBeforeNameTier6Male, TitleAfterNameTier6Male) = CreateStringBars(properties.ClanTiers[6].ClanMemberDefault.Male);
 			(TitleBeforeNameTier6Female, TitleAfterNameTier6Female) = CreateStringBars(properties.ClanTiers[6].ClanMemberDefault.Female);
 
+			(TitleBeforeNameRulerChildMale, TitleAfterNameRulerChildMale) = CreateStringBars(properties.ChildOfRulerProperties.Male);
+			(TitleBeforeNameRulerChildFemale, TitleAfterNameRulerChildFemale) = CreateStringBars(properties.ChildOfRulerProperties.Female);
 		}
 
 		internal override bool IsValid() {
