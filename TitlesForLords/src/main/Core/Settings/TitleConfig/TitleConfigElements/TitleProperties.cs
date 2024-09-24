@@ -1,5 +1,6 @@
 ﻿using Bannerlord.TitleOverhaul.src.main.Core.GamePatches;
 using Bannerlord.TitlesForLords.src.main.Core.GamePatches;
+using Bannerlord.TitlesForLords.src.main.Helper;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,10 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 
 		public string TitleBeforeName { get; set; }
 		public string TitleAfterName { get; set; }
+		public string NamePrefixToRemove { get; set; }
+		public string NamePostfixToRemove { get; set; }
+		public string ChildTitleBeforeName { get; set; }
+		public string ChildTitleAfterName { get; set; }
 		public string PartyPrefixOnCampaignMap { get; set; }
 		public string PartyPostfixOnCampaignMap { get; set; }
 		public string ArmyPrefixOnCampaignMap { get; set; }
@@ -26,10 +31,13 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 		public CaravanProperties OwnedCaravans { get; set; }
 
 		[JsonConstructor]
-		public TitleProperties(string titleBeforeName, string titleAfterName, string partyPrefixOnCampaignMap, string partyPostfixOnCampaignMap,
-								 string armyPrefixOnCampaignMap, string armyPostfixOnCampaignMap, bool? onlyApplyToClanLeader, bool? applyToMercenaries, VillagerProperties ownedVillagers, CaravanProperties ownedCaravans) {
+		public TitleProperties(string titleBeforeName, string titleAfterName, string namePrefixToRemove, string namePostfixToRemove, string childTitleBeforeName, string childTitleAfterName, string partyPrefixOnCampaignMap, string partyPostfixOnCampaignMap, string armyPrefixOnCampaignMap, string armyPostfixOnCampaignMap, bool? onlyApplyToClanLeader, bool? applyToMercenaries, VillagerProperties ownedVillagers, CaravanProperties ownedCaravans) {
 			TitleBeforeName = titleBeforeName;
 			TitleAfterName = titleAfterName;
+			NamePrefixToRemove = namePrefixToRemove;
+			NamePostfixToRemove = namePostfixToRemove;
+			ChildTitleBeforeName = childTitleBeforeName;
+			ChildTitleAfterName = childTitleAfterName;
 			PartyPrefixOnCampaignMap = partyPrefixOnCampaignMap;
 			PartyPostfixOnCampaignMap = partyPostfixOnCampaignMap;
 			ArmyPrefixOnCampaignMap = armyPrefixOnCampaignMap;
@@ -41,14 +49,16 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 		}
 
 		internal TitleProperties(TitleProperties properties) :
-			this(properties.TitleBeforeName, properties.TitleAfterName, properties.PartyPrefixOnCampaignMap,
-				 properties.PartyPostfixOnCampaignMap, properties.ArmyPrefixOnCampaignMap, properties.ArmyPostfixOnCampaignMap,
-				 properties.OnlyApplyToClanLeader, properties.ApplyToMercenaries, properties.OwnedVillagers != null ? new VillagerProperties(properties.OwnedVillagers) : null, properties.OwnedCaravans != null ? new CaravanProperties(properties.OwnedCaravans) : null) {
-		}
+			this(properties.TitleBeforeName, properties.TitleAfterName, properties.NamePrefixToRemove, properties.NamePostfixToRemove, properties.ChildTitleBeforeName, properties.ChildTitleAfterName, properties.PartyPrefixOnCampaignMap, properties.PartyPostfixOnCampaignMap, properties.ArmyPrefixOnCampaignMap, properties.ArmyPostfixOnCampaignMap,
+				 properties.OnlyApplyToClanLeader, properties.ApplyToMercenaries, properties.OwnedVillagers != null ? new VillagerProperties(properties.OwnedVillagers) : null, properties.OwnedCaravans != null ? new CaravanProperties(properties.OwnedCaravans) : null) { }
 
 		internal TitleProperties() {
 			TitleBeforeName = null;
 			TitleAfterName = null;
+			NamePrefixToRemove = null;
+			NamePostfixToRemove = null;
+			ChildTitleBeforeName = null;
+			ChildTitleAfterName = null;
 			PartyPrefixOnCampaignMap = null;
 			PartyPostfixOnCampaignMap = null;
 			ArmyPrefixOnCampaignMap = null;
@@ -71,6 +81,10 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 			}
 			var titleBeforeName = higherPriorityProperties.TitleBeforeName ?? lowerPriorityProperties.TitleBeforeName;
 			var titleAfterName = higherPriorityProperties.TitleAfterName ?? lowerPriorityProperties.TitleAfterName;
+			var namePrefixToRemove = higherPriorityProperties.NamePrefixToRemove ?? lowerPriorityProperties.NamePrefixToRemove;
+			var namePostfixToRemove = higherPriorityProperties.NamePostfixToRemove ?? lowerPriorityProperties.NamePostfixToRemove;
+			var childTitleBeforeName = higherPriorityProperties.ChildTitleBeforeName ?? lowerPriorityProperties.ChildTitleBeforeName;
+			var childTitleAfterName = higherPriorityProperties.ChildTitleAfterName ?? lowerPriorityProperties.ChildTitleAfterName;
 			var partyPrefixOnCampaignMap = higherPriorityProperties.PartyPrefixOnCampaignMap ?? lowerPriorityProperties.PartyPrefixOnCampaignMap;
 			var partyPostfixOnCampaignMap = higherPriorityProperties.PartyPostfixOnCampaignMap ?? lowerPriorityProperties.PartyPostfixOnCampaignMap;
 			var armyPrefixOnCampaignMap = higherPriorityProperties.ArmyPrefixOnCampaignMap ?? lowerPriorityProperties.ArmyPrefixOnCampaignMap;
@@ -79,7 +93,7 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 			var applyToMercenaries = higherPriorityProperties.ApplyToMercenaries ?? lowerPriorityProperties.ApplyToMercenaries;
 			var ownedVillagers = VillagerProperties.MergeLowerPriorityVillagerPropertiesIntoHigher(higherPriorityProperties.OwnedVillagers, lowerPriorityProperties.OwnedVillagers);
 			var ownedCaravans = CaravanProperties.MergeLowerPriorityCaravanPropertiesIntoHigher(higherPriorityProperties.OwnedCaravans, lowerPriorityProperties.OwnedCaravans);
-			return new TitleProperties(titleBeforeName, titleAfterName, partyPrefixOnCampaignMap, partyPostfixOnCampaignMap, armyPrefixOnCampaignMap, armyPostfixOnCampaignMap, onlyApplyToClanLeader, applyToMercenaries, ownedVillagers, ownedCaravans);
+			return new TitleProperties(titleBeforeName, titleAfterName, namePrefixToRemove, namePostfixToRemove, childTitleBeforeName, childTitleAfterName, partyPrefixOnCampaignMap, partyPostfixOnCampaignMap, armyPrefixOnCampaignMap, armyPostfixOnCampaignMap, onlyApplyToClanLeader, applyToMercenaries, ownedVillagers, ownedCaravans);
 		}
 
 		private bool ShouldApplyPropertiesTo(Hero hero) {
@@ -98,14 +112,23 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 		}
 
 		internal string ApplyToHeroName(Hero hero, string vanillaName) {
-			if (ShouldApplyPropertiesTo(hero) && (!(TitleBeforeName is null) || !(TitleAfterName is null))) {
-				return ApplyTitleToLord(hero);
+			if (ShouldApplyPropertiesTo(hero)) {
+				if (!(TitleBeforeName is null) || !(TitleAfterName is null)) {
+					return ApplyTitleToLord(hero);
+				}
+				if (hero.IsChild && !(ChildTitleBeforeName is null) || !(ChildTitleAfterName is null)) {
+					return ApplyTitleToChildOfLord(hero);
+				}
 			}
 			return vanillaName;
 		}
 
 		private string ApplyTitleToLord(Hero hero) {
-			return $"{TitleBeforeName?.TrimStart() ?? ""}{HeroNameGetterPatch.GetUnmodifiedName(hero)}{TitleAfterName?.TrimEnd() ?? ""}";
+			return $"{TitleBeforeName?.TrimStart() ?? ""}{HeroNameGetterPatch.GetUnmodifiedName(hero).Value.RemovePrefix(NamePrefixToRemove).RemovePostfix(NamePostfixToRemove)}{TitleAfterName?.TrimEnd() ?? ""}";
+		}
+
+		private string ApplyTitleToChildOfLord(Hero hero) {
+			return $"{ChildTitleBeforeName?.TrimStart() ?? ""}{HeroNameGetterPatch.GetUnmodifiedName(hero).Value.RemovePrefix(NamePrefixToRemove).RemovePostfix(NamePostfixToRemove)}{ChildTitleAfterName?.TrimEnd() ?? ""}";
 		}
 
 		internal string ApplyToLordParty(MobileParty heroParty) {
@@ -121,7 +144,11 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 			}
 			StringBuilder output = new StringBuilder(100);
 			output.Append(PartyPrefixOnCampaignMap?.TrimStart() ?? "");
-			output.Append(ApplyTitleToLord(heroParty.LeaderHero));
+			if (heroParty.LeaderHero.IsChild) {
+				output.Append(ApplyTitleToChildOfLord(heroParty.LeaderHero));
+			} else {
+				output.Append(ApplyTitleToLord(heroParty.LeaderHero));
+			}
 			output.Append(PartyPostfixOnCampaignMap?.TrimEnd() ?? "");
 			return output.ToString();
 		}
@@ -146,42 +173,54 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 			}
 			StringBuilder output = new StringBuilder(100);
 			output.Append(ArmyPrefixOnCampaignMap?.TrimStart() ?? "");
-			output.Append(ApplyTitleToLord(army.LeaderParty.LeaderHero));
+			if (army.LeaderParty.LeaderHero.IsChild) {
+				output.Append(ApplyTitleToChildOfLord(army.LeaderParty.LeaderHero));
+			} else {
+				output.Append(ApplyTitleToLord(army.LeaderParty.LeaderHero));
+			}
 			output.Append(ArmyPostfixOnCampaignMap?.TrimEnd() ?? "");
 			return output.ToString();
 		}
 
-		public override bool Equals(object obj) {
-			return this.Equals(obj as TitleProperties);
+		public bool Equals(TitleProperties other) {
+			return this.Equals(other as object);
 		}
 
-		public bool Equals(TitleProperties other) {
-			return !(other is null) &&
-				   this.TitleBeforeName == other.TitleBeforeName &&
-				   this.TitleAfterName == other.TitleAfterName &&
-				   this.PartyPrefixOnCampaignMap == other.PartyPrefixOnCampaignMap &&
-				   this.PartyPostfixOnCampaignMap == other.PartyPostfixOnCampaignMap &&
-				   this.ArmyPrefixOnCampaignMap == other.ArmyPrefixOnCampaignMap &&
-				   this.ArmyPostfixOnCampaignMap == other.ArmyPostfixOnCampaignMap &&
-				   this.OnlyApplyToClanLeader == other.OnlyApplyToClanLeader &&
-				   this.ApplyToMercenaries == other.ApplyToMercenaries &&
-				   EqualityComparer<VillagerProperties>.Default.Equals(this.OwnedVillagers, other.OwnedVillagers) &&
-				   EqualityComparer<CaravanProperties>.Default.Equals(this.OwnedCaravans, other.OwnedCaravans);
+		public override bool Equals(object obj) {
+			return obj is TitleProperties properties &&
+				   this.TitleBeforeName == properties.TitleBeforeName &&
+				   this.TitleAfterName == properties.TitleAfterName &&
+				   this.NamePrefixToRemove == properties.NamePrefixToRemove &&
+				   this.NamePostfixToRemove == properties.NamePostfixToRemove &&
+				   this.ChildTitleBeforeName == properties.ChildTitleBeforeName &&
+				   this.ChildTitleAfterName == properties.ChildTitleAfterName &&
+				   this.PartyPrefixOnCampaignMap == properties.PartyPrefixOnCampaignMap &&
+				   this.PartyPostfixOnCampaignMap == properties.PartyPostfixOnCampaignMap &&
+				   this.ArmyPrefixOnCampaignMap == properties.ArmyPrefixOnCampaignMap &&
+				   this.ArmyPostfixOnCampaignMap == properties.ArmyPostfixOnCampaignMap &&
+				   this.OnlyApplyToClanLeader == properties.OnlyApplyToClanLeader &&
+				   this.ApplyToMercenaries == properties.ApplyToMercenaries &&
+				   EqualityComparer<VillagerProperties>.Default.Equals(this.OwnedVillagers, properties.OwnedVillagers) &&
+				   EqualityComparer<CaravanProperties>.Default.Equals(this.OwnedCaravans, properties.OwnedCaravans);
 		}
 
 		public override int GetHashCode() {
-			int hashCode = -965217632;
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.TitleBeforeName);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.TitleAfterName);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.PartyPrefixOnCampaignMap);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.PartyPostfixOnCampaignMap);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ArmyPrefixOnCampaignMap);
-			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.ArmyPostfixOnCampaignMap);
-			hashCode = hashCode * -1521134295 + this.OnlyApplyToClanLeader.GetHashCode();
-			hashCode = hashCode * -1521134295 + this.ApplyToMercenaries.GetHashCode();
-			hashCode = hashCode * -1521134295 + EqualityComparer<VillagerProperties>.Default.GetHashCode(this.OwnedVillagers);
-			hashCode = hashCode * -1521134295 + EqualityComparer<CaravanProperties>.Default.GetHashCode(this.OwnedCaravans);
-			return hashCode;
+			var hash = new HashCode();
+			hash.Add(this.TitleBeforeName);
+			hash.Add(this.TitleAfterName);
+			hash.Add(this.NamePrefixToRemove);
+			hash.Add(this.NamePostfixToRemove);
+			hash.Add(this.ChildTitleBeforeName);
+			hash.Add(this.ChildTitleAfterName);
+			hash.Add(this.PartyPrefixOnCampaignMap);
+			hash.Add(this.PartyPostfixOnCampaignMap);
+			hash.Add(this.ArmyPrefixOnCampaignMap);
+			hash.Add(this.ArmyPostfixOnCampaignMap);
+			hash.Add(this.OnlyApplyToClanLeader);
+			hash.Add(this.ApplyToMercenaries);
+			hash.Add(this.OwnedVillagers);
+			hash.Add(this.OwnedCaravans);
+			return hash.ToHashCode();
 		}
 	}
 }

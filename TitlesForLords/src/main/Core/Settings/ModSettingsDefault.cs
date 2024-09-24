@@ -52,8 +52,8 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 					ClanProperties.CreateEmpty(),
 					new RankMember(
 						new TitleProperties(),
-						new TitleProperties("King ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-						new TitleProperties("Queen ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+						new TitleProperties("King ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+						new TitleProperties("Queen ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 						),
 					RankMember.CreateEmpty(),
 					RankMember.CreateEmpty(),
@@ -66,56 +66,56 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 								[6] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Grand Duke ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Grand Duchess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Grand Duke ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Grand Duchess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[5] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Grand Duke ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Grand Duchess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Grand Duke ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Grand Duchess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[4] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Duke ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Duchess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Duke ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Duchess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[3] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Count ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Countess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Count ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Countess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[2] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Baron ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Baroness ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Baron ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Baroness ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[1] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Baron ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Baroness ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Baron ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Baroness ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[0] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Baron ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Baroness ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Baron ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Baroness ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									)
@@ -123,14 +123,14 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 							ClanProperties.CreateEmpty(),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties("King ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties("Queen ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties("King ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties("Queen ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							RankMember.CreateEmpty(),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties("Prince ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties("Princess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties("Prince ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties("Princess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							ClanProperties.CreateEmpty()
 							),
@@ -139,56 +139,56 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 								[6] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Petty King ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Petty Queen ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Petty King ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Petty Queen ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[5] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Petty King ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Petty Queen ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Petty King ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Petty Queen ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[4] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("High Chief ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("High Chieftess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("High Chief ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("High Chieftess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[3] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Chief ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Chieftess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Chief ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Chieftess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[2] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[1] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[0] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									)
@@ -196,8 +196,8 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 							ClanProperties.CreateEmpty(),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties("High King ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties("High Queen ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties("High King ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties("High Queen ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							RankMember.CreateEmpty(),
 							RankMember.CreateEmpty(),
@@ -208,56 +208,56 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 								[6] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Consul ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Consul ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Consul ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Consul ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[5] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Consul ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Consul ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Consul ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Consul ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[4] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Magistrate ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Magistrate ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Magistrate ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Magistrate ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[3] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Proconsul ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Proconsul ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Proconsul ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Proconsul ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[2] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Patrician ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Patrician ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Patrician ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Patrician ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[1] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Patrician ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Patrician ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Patrician ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Patrician ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[0] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Patrician ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Patrician ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Patrician ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Patrician ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									)
@@ -265,14 +265,14 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 							ClanProperties.CreateEmpty(),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties("Emperor ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties("Empress ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties("Emperor ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties("Empress ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							RankMember.CreateEmpty(),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties("Prince ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties("Princess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties("Prince ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties("Princess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							ClanProperties.CreateEmpty()
 							),
@@ -281,56 +281,56 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 								[6] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Prince ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Princess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Prince ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Princess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[5] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Prince ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Princess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Prince ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Princess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[4] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Boyar ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Boyar ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Boyar ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Boyar ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[3] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Castellan ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Castellan ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Castellan ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Castellan ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[2] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[1] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[0] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Chieftain ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Chieftainess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									)
@@ -338,8 +338,8 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 							ClanProperties.CreateEmpty(),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties("Grand Prince ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties("Grand Princess ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties("Grand Prince ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties("Grand Princess ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							RankMember.CreateEmpty(),
 							RankMember.CreateEmpty(),
@@ -350,77 +350,77 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 								[6] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties(null, " Noyan", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties(null, " Noyan", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties(null, " Noyan", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties(null, " Noyan", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[5] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties(null, " Noyan", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties(null, " Noyan", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties(null, " Noyan", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties(null, " Noyan", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[4] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties(null, " Noyon", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties(null, " Noyon", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties(null, " Noyon", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties(null, " Noyon", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[3] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Cherbi ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Cherbi ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Cherbi ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Cherbi ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[2] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Baig ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Baig ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Baig ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Baig ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[1] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Baig ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Baig ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Baig ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Baig ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[0] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Baig ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Baig ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Baig ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Baig ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									)
 							},
 							new ClanProperties(
 								new RankMember(
-									new TitleProperties("", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()), // to overwrite default
+									new TitleProperties("", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()), // to overwrite default
 									new TitleProperties(),
 									new TitleProperties()
 									),
 								RankMember.CreateEmpty()),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties(null, " Khan", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties(null, " Khatun", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties(null, " Khan", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties(null, " Khatun", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							RankMember.CreateEmpty(),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties(null, " Khanzadeh", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties(null, " Khanzada", null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties(null, " Khanzadeh", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties(null, " Khanzada", null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							ClanProperties.CreateEmpty()
 							),
@@ -429,56 +429,56 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 								[6] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Emir ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Emira ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Emir ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Emira ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[5] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Emir ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Emira ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Emir ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Emira ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[4] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Shaikh ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Shaykhah ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Shaikh ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Shaykhah ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[3] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("bey ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("begum ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("bey ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("begum ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[2] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Agha ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Khanum ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Agha ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Khanum ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[1] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Agha ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Khanum ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Agha ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Khanum ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									),
 								[0] = new ClanProperties(
 									new RankMember(
 										new TitleProperties(),
-										new TitleProperties("Agha ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-										new TitleProperties("Khanum ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+										new TitleProperties("Agha ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+										new TitleProperties("Khanum ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 										),
 									RankMember.CreateEmpty()
 									)
@@ -486,14 +486,14 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 							ClanProperties.CreateEmpty(),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties("Sultan ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties("Sultana ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties("Sultan ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties("Sultana ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							RankMember.CreateEmpty(),
 							new RankMember(
 								new TitleProperties(),
-								new TitleProperties("Shahzade ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
-								new TitleProperties("Shehzadi ", null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
+								new TitleProperties("Shahzade ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties()),
+								new TitleProperties("Shehzadi ", null, null, null, null, null, null, null, null, null, null, null, new VillagerProperties(), new CaravanProperties())
 								),
 							ClanProperties.CreateEmpty()
 							),
