@@ -28,7 +28,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs.LordTitle
 		[DataSourceProperty]
 		public HintViewModel EditForKingdomsHint { get; } = new HintViewModel(new TextObject("Set properties depending on the kingdom this character currently belongs to. This overwrites properties defined here directly, but these are overwritten by properties defined for the character's current clan."));
 		[DataSourceProperty]
-		public HintViewModel EditForClansHint { get; } = new HintViewModel(new TextObject("Set properties depending on the clan this character currently belongs to. This is only useful if 'track name changes' is enabled. This overwrites properties defined here directly and properties defined for the character's current kingdom."));
+		public HintViewModel EditForClansHint { get; } = new HintViewModel(new TextObject("Set properties depending on the clan this character currently belongs to. This is only useful if 'track name changes' is enabled (with 'track name changes', the config is automatically copied to an entry with the updated full character name). This overwrites properties defined here directly and properties defined for the character's current kingdom."));
 
 		public EditCharacterPropertiesVM(TitleConfiguration config, string characterKey, string pathDescriptor, bool isEditable, SettingsLayerBaseVM parent, ConfigUIBaseVM baseVM) : base(baseVM) {
 			_parent = parent;

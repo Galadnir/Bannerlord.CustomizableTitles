@@ -48,7 +48,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs.LordTitle
 			NextScreenOpenedViaAdditionalButton = true;
 		}
 		public override void ExecuteCreateNewEntry() {
-			BaseVM.Screen.OpenPopUp(new EditableTextPopUpVM("Enter name of kingdom",
+			BaseVM.Screen.OpenPopUp(new EditableTextPopUpVM("Enter name of clan",
 			clanName => {
 				if (clanName is null || CharacterClanProperties.Properties.ContainsKey(clanName)) {
 					InformationManager.DisplayMessage(new InformationMessage("Did not create. An entry for that clan already exists."));
