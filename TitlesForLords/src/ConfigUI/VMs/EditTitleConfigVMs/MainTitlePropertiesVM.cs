@@ -18,6 +18,14 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs {
 		[DataSourceProperty]
 		public EditStringBarVM TitleAfterName { get; private set; }
 		[DataSourceProperty]
+		public EditStringBarVM NamePrefixToRemove { get; private set; }
+		[DataSourceProperty]
+		public EditStringBarVM NamePostfixToRemove { get; private set; }
+		[DataSourceProperty]
+		public EditStringBarVM ChildTitleBeforeName { get; private set; }
+		[DataSourceProperty]
+		public EditStringBarVM ChildTitleAfterName { get; private set; }
+		[DataSourceProperty]
 		public EditStringBarVM PartyPrefixOnCampaignMap { get; private set; }
 		[DataSourceProperty]
 		public EditStringBarVM PartyPostfixOnCampaignMap { get; private set; }
@@ -46,6 +54,22 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs.EditTitleConfigVMs {
 
 			TitleAfterName = new EditStringBarVM(IsEditEnabled, "Title (after name)", "The title of the lord after his name. A space is not automatically inserted before. If 'Title (before name)' and 'Title (after name)' are both undefined for a character, the value provided by the game is used.", _properties.TitleAfterName,
 				value => _properties.TitleAfterName = value,
+				currentValue => !currentValue.StartsWith(" "), "Your current title does not start with a space. A space is not automatically inserted before.");
+
+			NamePrefixToRemove = new EditStringBarVM(IsEditEnabled, "Name Prefix to Remove", "The prefix of a hero's name to remove, e.g. \"woodlands ergeon\" to \"ergeon\" when this is set to \"woodlands \". Note the space in the previous example, spaces following the prefix are not automatically removed. Mainly intended to remove base game name attachments of mercenary clans.", _properties.NamePrefixToRemove,
+				value => _properties.NamePrefixToRemove = value,
+				currentValue => !currentValue.EndsWith(" "), "Your current prefix does not end with a space. Spaces following your prefix are not automatically removed.");
+
+			NamePostfixToRemove = new EditStringBarVM(IsEditEnabled, "Name Postfix to Remove", "The postfix of a hero's name to remove, e.g. \"ergeon of the woods\" to \"ergeon\" when this is set to \" of the woods\". Note the space in the previous example, spaces preceding the postfix are not automatically removed. Mainly intended to remove base game name attachments of mercenary clans.", _properties.NamePostfixToRemove,
+				value => _properties.NamePostfixToRemove = value,
+				currentValue => !currentValue.StartsWith(" "), "Your current postfix does not start with a space. Spaces preciding your postfix are not automatically removed.");
+
+			ChildTitleBeforeName = new EditStringBarVM(IsEditEnabled, "Child Title (before name)", "The title of the lord if he/she is a child before his name. A space is not automatically inserted after. If 'Child Title (before name)' and 'Child Title (after name)' are both undefined for a character that is a child, the value provided by the game is used.", _properties.ChildTitleBeforeName,
+				value => _properties.ChildTitleBeforeName = value,
+				currentValue => !currentValue.EndsWith(" "), "Your current title does not end with a space. A space is not automatically inserted after.");
+
+			ChildTitleAfterName = new EditStringBarVM(IsEditEnabled, "Child Title (after name)", "The title of the lord after his name if he/she is a child. A space is not automatically inserted before. If 'Child Title (before name)' and 'Child Title (after name)' are both undefined for a character that is a child, the value provided by the game is used.", _properties.ChildTitleAfterName,
+				value => _properties.ChildTitleAfterName = value,
 				currentValue => !currentValue.StartsWith(" "), "Your current title does not start with a space. A space is not automatically inserted before.");
 
 			PartyPrefixOnCampaignMap = new EditStringBarVM(IsEditEnabled, "Party prefix", "The prefix of the lord's party on the campaign map. A space is not automatically inserted after. If 'Party prefix' and 'Party postfix' are both undefined for a party, the value provided by the game is used.", _properties.PartyPrefixOnCampaignMap,

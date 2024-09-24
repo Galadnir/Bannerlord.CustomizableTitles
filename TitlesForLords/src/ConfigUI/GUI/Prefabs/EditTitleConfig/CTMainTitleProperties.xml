@@ -13,6 +13,10 @@
                         <CTNullableBoolDropdown DataSource="{ApplyToMercenaries}"/>
                         <CTEditStringBar DataSource="{TitleBeforeName}" />
                         <CTEditStringBar DataSource="{TitleAfterName}" />
+                        <CTEditStringBar DataSource="{NamePrefixToRemove}" />
+                        <CTEditStringBar DataSource="{NamePostfixToRemove}" />
+                        <CTEditStringBar DataSource="{ChildTitleBeforeName}" />
+                        <CTEditStringBar DataSource="{ChildTitleAfterName}" />
                         <CTEditStringBar DataSource="{PartyPrefixOnCampaignMap}" />
                         <CTEditStringBar DataSource="{PartyPostfixOnCampaignMap}" />
                         <CTEditStringBar DataSource="{ArmyPrefixOnCampaignMap}" />

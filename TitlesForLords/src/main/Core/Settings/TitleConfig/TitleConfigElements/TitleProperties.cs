@@ -113,10 +113,10 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 
 		internal string ApplyToHeroName(Hero hero, string vanillaName) {
 			if (ShouldApplyPropertiesTo(hero)) {
-				if (!(TitleBeforeName is null) || !(TitleAfterName is null)) {
+				if (!hero.IsChild && (!(TitleBeforeName is null) || !(TitleAfterName is null))) {
 					return ApplyTitleToLord(hero);
 				}
-				if (hero.IsChild && !(ChildTitleBeforeName is null) || !(ChildTitleAfterName is null)) {
+				if (!(ChildTitleBeforeName is null) || !(ChildTitleAfterName is null)) {
 					return ApplyTitleToChildOfLord(hero);
 				}
 			}
@@ -124,11 +124,11 @@ namespace Bannerlord.TitlesForLords.main.Core.Settings.TitleConfig.TitleConfigEl
 		}
 
 		private string ApplyTitleToLord(Hero hero) {
-			return $"{TitleBeforeName?.TrimStart() ?? ""}{HeroNameGetterPatch.GetUnmodifiedName(hero).Value.RemovePrefix(NamePrefixToRemove).RemovePostfix(NamePostfixToRemove)}{TitleAfterName?.TrimEnd() ?? ""}";
+			return $"{TitleBeforeName?.TrimStart() ?? ""}{HeroNameGetterPatch.GetUnmodifiedName(hero).ToString().RemovePrefix(NamePrefixToRemove).RemovePostfix(NamePostfixToRemove)}{TitleAfterName?.TrimEnd() ?? ""}";
 		}
 
 		private string ApplyTitleToChildOfLord(Hero hero) {
-			return $"{ChildTitleBeforeName?.TrimStart() ?? ""}{HeroNameGetterPatch.GetUnmodifiedName(hero).Value.RemovePrefix(NamePrefixToRemove).RemovePostfix(NamePostfixToRemove)}{ChildTitleAfterName?.TrimEnd() ?? ""}";
+			return $"{ChildTitleBeforeName?.TrimStart() ?? ""}{HeroNameGetterPatch.GetUnmodifiedName(hero).ToString().RemovePrefix(NamePrefixToRemove).RemovePostfix(NamePostfixToRemove)}{ChildTitleAfterName?.TrimEnd() ?? ""}";
 		}
 
 		internal string ApplyToLordParty(MobileParty heroParty) {

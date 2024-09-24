@@ -20,9 +20,6 @@ namespace Bannerlord.TitleOverhaul.src.main.Core.GamePatches {
 		}
 
 		internal static bool ShouldApplyToHero(Hero hero) {
-			if (hero.IsChild) {
-				return false;
-			}
 			if (!ModSettings.Instance.ApplyTitleConfigToPlayer && hero.IsHumanPlayerCharacter) {
 				return false;
 			}
