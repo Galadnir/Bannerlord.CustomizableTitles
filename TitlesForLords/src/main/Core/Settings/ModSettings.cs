@@ -222,9 +222,9 @@ namespace Bannerlord.TitlesForLords.src.main.Core.Settings {
 				NullValueHandling = NullValueHandling.Ignore,
 			}));
 			SaveUserActiveConfigs();
-			if (!(Campaign.Current is null)) {
-				foreach (PartyComponent party in Campaign.Current.MobileParties.Select(x => x.PartyComponent)) {
-					party.ClearCachedName();
+			if (!(Campaign.Current is null) && !(Campaign.Current.MobileParties is null)) {
+				foreach (PartyComponent party in Campaign.Current.MobileParties.Select(x => x?.PartyComponent)) {
+					party?.ClearCachedName();
 				}
 			}
 		}
