@@ -246,6 +246,11 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 			var forwardsHotkey = TitlesForLordsSubModule.NavigateForwardsHotkey;
 			forwardsHotkey.IsEnabled = true;
 			forwardsHotkey.IsDownAndReleasedEvent += ExecuteForward;
+
+			var forceExitUiHotkey = TitlesForLordsSubModule.ForceExitCustomizationUiHotkey;
+			forceExitUiHotkey.IsEnabled = true;
+			forceExitUiHotkey.IsDownAndReleasedEvent += ExecuteCancel;
+
 		}
 
 		private void UnregisterHotkeys() {
@@ -256,6 +261,10 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI.VMs {
 			var forwardsHotkey = TitlesForLordsSubModule.NavigateForwardsHotkey;
 			forwardsHotkey.IsEnabled = false;
 			forwardsHotkey.IsDownAndReleasedEvent -= ExecuteForward;
+
+			var forceExitUiHotkey = TitlesForLordsSubModule.ForceExitCustomizationUiHotkey;
+			forceExitUiHotkey.IsEnabled = false;
+			forceExitUiHotkey.IsDownAndReleasedEvent -= ExecuteCancel;
 		}
 	}
 }

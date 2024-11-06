@@ -24,6 +24,7 @@ namespace Bannerlord.TitlesForLords.src.main.Core {
 		internal static NavigateForwardsHotkey NavigateForwardsHotkey;
 		internal static PopUpConfirmHotkey PopUpConfirmHotkey;
 		internal static PopUpDiscardHotkey PopUpDiscardHotkey;
+		internal static ForceExitCustomizationUiHotkey ForceExitCustomizationUiHotkey;
 
 		private const string _failedToLoadText = "Unfortunately, attempting to load my UI here simply loads a black screen. Please access the options either through the the options menu while in a campaign or through \"Main Menu => Mod Options\"";
 
@@ -122,6 +123,7 @@ namespace Bannerlord.TitlesForLords.src.main.Core {
 			NavigateForwardsHotkey = HotKeyManager.Add<NavigateForwardsHotkey>();
 			PopUpConfirmHotkey = HotKeyManager.Add<PopUpConfirmHotkey>();
 			PopUpDiscardHotkey = HotKeyManager.Add<PopUpDiscardHotkey>();
+			ForceExitCustomizationUiHotkey = HotKeyManager.Add<ForceExitCustomizationUiHotkey>();
 			HotKeyManager.Build();
 		}
 	}

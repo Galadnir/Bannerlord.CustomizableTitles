@@ -13,7 +13,7 @@ namespace Bannerlord.TitlesForLords.src.main.Core.HotKeys {
 
 			DisplayName = "Customizable Titles Config Menu -- Discard Pop-Up";
 			Description = "Discard a Pop-Up in the config menu for \"Customizable Titles\"";
-			DefaultKey = TaleWorlds.InputSystem.InputKey.Escape;
+			DefaultKey = TaleWorlds.InputSystem.InputKey.BackSpace;
 			Category = HotKeyManager.Categories[HotKeyCategory.MenuShortcut];
 		}
 	}

@@ -39,6 +39,7 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 		}
 
 		public void Close() { // all inner vm movies must be released before (although I don't know if they actually have to be released, I'm just doing it to be sure)
+			ClosePopUp();
 			UnloadLayer(_baseLayer, _baseMovie);
 		}
 
@@ -69,6 +70,8 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 		}
 
 		internal void OpenPopUp(EditableTextPopUpVM vm) {
+			_popUpVM?.ExecuteDiscard(); // it should not be possible that OpenPopUp is called while a popUp is already open, but with this there will only be one open popUp in case of bugs also, which is easier to handle
+			_inquiryPopUpVM?.ExecuteDeny();
 			_popUpLayer = new GauntletLayer(LayerPriority.InputPopUp);
 			_popUpMovie = _popUpLayer.LoadMovie("CTEditableTextPopUp", vm);
 			_popUpVM = vm;
@@ -109,6 +112,8 @@ namespace Bannerlord.TitleOverhaul.src.ConfigUI {
 		}
 
 		internal void OpenInquiryPopUp(InquiryPopUpVM vm) {
+			_popUpVM?.ExecuteDiscard(); // it should not be possible that OpenPopUp is called while a popUp is already open, but with this there will only be one open popUp in case of bugs also, which is easier to handle
+			_inquiryPopUpVM?.ExecuteDeny();
 			_inquiryPopUpLayer = new GauntletLayer(LayerPriority.InquiryPopUp);
 			_inquiryPopUpMovie = _inquiryPopUpLayer.LoadMovie("CTInquiryPopUp", vm);
 			_inquiryPopUpVM = vm;
