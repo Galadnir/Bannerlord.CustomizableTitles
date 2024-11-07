@@ -310,10 +310,6 @@
 		</Reference>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="src\main\Core\GamePatches\" />
-	</ItemGroup>
-
 
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release'">
 		<PostBuildEvent>
