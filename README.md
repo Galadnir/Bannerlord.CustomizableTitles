@@ -1,3 +1,16 @@
+# v1.1.3 Patch Notes 
+- added "Esc" as a hotkey to close the entire Customizable Titles configuration menu
+- fixed a bug where portraits of supporting lords during kingdom decisions were not displayed if titles were applied
+ 
+# v1.1.2 Patch Notes 
+- fixed a potential crash to desktop during saving when conficting with other mods
+- fixed a wrong pop-up title in the expert editor
+- using the expert editor, you can now specifiy titles before and after the name for children
+- using the expert editor, you can now specify pre- and postfixes to remove from a hero's name, e.g. to remove the base game name attachments for mercenary clans
+ 
+# v1.1.1 Patch Notes 
+- the titles for a ruler's children are now also customizable through the basic configuration menu
+
 # v1.1 Patch Notes
  - Moved the save location of the configurations from the mod's installation folder to "ProgramData\ProgramData\Mount and Blade II Bannerlord\Mods\CustomizableTitles", so that configurations are no longer deleted when deleting the mod in order to make updating easier.
  - active configs are now tracked per user (only starts after a user opens the game using this mod)
