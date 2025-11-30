@@ -1,3 +1,6 @@
+# NOTE: ABANDONED
+I'm sorry to announce that this mod will not be updated any further, as patch v1.3 broke my mod in enough ways that I can't be bothered to fix it.
+
 # v1.1.3 Patch Notes 
 - added "Esc" as a hotkey to close the entire Customizable Titles configuration menu
 - fixed a bug where portraits of supporting lords during kingdom decisions were not displayed if titles were applied
